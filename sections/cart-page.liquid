@@ -65,7 +65,7 @@
           <div class="cart-summary__row cart-summary__row--shipping">
             <span>Shipping</span>
             <span>
-              {%- if cart.total_price >= 50000 -%}
+              {%- if cart.total_price >= 80000 -%}
                 <span class="cart-free-badge">FREE</span>
               {%- else -%}
                 Calculated at checkout
@@ -74,9 +74,9 @@
           </div>
         </div>
 
-        {%- if cart.total_price < 50000 -%}
+        {%- if cart.total_price < 80000 -%}
         <div class="cart-shipping-note">
-          🚚 Add {{ 50000 | minus: cart.total_price | money }} more for free delivery
+          🚚 Add {{ 80000 | minus: cart.total_price | money }} more for free delivery
         </div>
         {%- else -%}
         <div class="cart-shipping-note cart-shipping-note--unlocked">
@@ -394,7 +394,7 @@
   document.querySelectorAll('.cart-qty__btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       updateCart(this.dataset.key, parseInt(this.dataset.qty));
-      });
+    });
   });
 
   document.querySelectorAll('.cart-item__remove').forEach(function(btn) {
