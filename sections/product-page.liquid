@@ -68,6 +68,28 @@
         <li><span class="benefit-dot"></span> Vegan, all-natural, no dependency</li>
       </ul>
 
+      <!-- Purchase Type Toggle -->
+      <div class="purchase-toggle" role="group" aria-label="Purchase type">
+        <button type="button" class="purchase-toggle__btn active" data-type="one-time">
+          <span class="toggle-label">One-time Purchase</span>
+          <span class="toggle-sub">{{ product.price | money }}</span>
+        </button>
+        <button type="button" class="purchase-toggle__btn" data-type="subscribe">
+          <span class="toggle-label">Subscribe &amp; Save <span class="save-badge">10% OFF</span></span>
+          <span class="toggle-sub">From {{ product.price | times: 0.9 | money }}/month</span>
+        </button>
+      </div>
+
+      <!-- Subscription frequency (shown when subscribe is selected) -->
+      <div class="subscribe-options" id="subscribe-options-pp">
+        <label>Delivery frequency</label>
+        <select id="subscribe-freq-pp">
+          <option value="1">Every month — {{ product.price | times: 0.9 | money }}</option>
+          <option value="2">Every 2 months — {{ product.price | times: 0.85 | money }}</option>
+        </select>
+        <div class="subscribe-perk">✅ Cancel or pause anytime · No lock-in</div>
+      </div>
+
       {%- form 'product', product, id: 'product-form' -%}
 
         {%- unless product.has_only_default_variant -%}
