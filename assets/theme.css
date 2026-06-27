@@ -397,7 +397,7 @@ a    { text-decoration: none; }
 .cta-note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,.5); }
 
 /* ── PRODUCT PAGE SPECIFIC ── */
-.product-page { background: var(--cream); padding: 80px 24px; }
+.product-page { background: var(--cream); padding: 24px 24px 80px; }
 .product-page__grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 80px; align-items: start; max-width: 1160px; margin: 0 auto;
