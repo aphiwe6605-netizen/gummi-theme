@@ -3,12 +3,6 @@
 
     <!-- GALLERY + PURCHASE ACTIONS (left column) -->
     <div class="product-gallery">
-      <p class="product-page__breadcrumb">
-        <a href="{{ routes.root_url }}">Home</a> /
-        <a href="{{ routes.all_products_collection_url }}">Shop</a> /
-        {{ product.title }}
-      </p>
-
       <div class="product-gallery__main">
         {%- if product.featured_image -%}
           <img
