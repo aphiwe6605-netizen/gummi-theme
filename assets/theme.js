@@ -40,6 +40,26 @@ document.addEventListener('DOMContentLoaded', function () {
     if (nav) nav.style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(59,31,107,.1)' : 'none';
   });
 
+  // Purchase type toggle (One-time / Subscribe & Save)
+  document.querySelectorAll('.purchase-toggle').forEach(function (toggle) {
+    var btns = toggle.querySelectorAll('.purchase-toggle__btn');
+    var panel = toggle.nextElementSibling;
+    while (panel && !panel.classList.contains('subscribe-options')) {
+      panel = panel.nextElementSibling;
+    }
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var isSubscribe = btn.dataset.type === 'subscribe';
+        if (panel) { panel.classList.toggle('visible', isSubscribe); }
+        var form = panel ? panel.nextElementSibling : null;
+        var atc = form ? form.querySelector('.add-to-cart') : null;
+        if (atc) { atc.textContent = isSubscribe ? 'Subscribe & Save →' : 'Add to Cart →'; }
+      });
+    });
+  });
+
   // Add to cart
   var atcBtn = document.querySelector('.add-to-cart');
   if (atcBtn) {
