@@ -1,7 +1,7 @@
 <section class="product-page">
   <div class="product-page__grid">
 
-    <!-- GALLERY -->
+    <!-- GALLERY + PURCHASE ACTIONS (left column) -->
     <div class="product-gallery">
       <p class="product-page__breadcrumb">
         <a href="{{ routes.root_url }}">Home</a> /
@@ -38,7 +38,7 @@
       </div>
       {%- endif -%}
 
-      <!-- Purchase Type Toggle — sits right under the product image -->
+      <!-- Purchase Type Toggle -->
       <div class="purchase-toggle" role="group" aria-label="Purchase type" style="margin-top:24px;">
         <button type="button" class="purchase-toggle__btn active" data-type="one-time">
           <span class="toggle-label">One-time Purchase</span>
@@ -50,7 +50,7 @@
         </button>
       </div>
 
-      <!-- Subscription frequency (shown when subscribe is selected) -->
+      <!-- Subscription frequency -->
       <div class="subscribe-options" id="subscribe-options-pp">
         <label>Delivery frequency</label>
         <select id="subscribe-freq-pp">
@@ -59,37 +59,8 @@
         </select>
         <div class="subscribe-perk">✅ Cancel or pause anytime · No lock-in</div>
       </div>
-    </div>
 
-    <!-- PRODUCT INFO -->
-    <div class="product-info" style="padding-top:48px;">
-      <div class="product-info__flavour-badge">🫐 Wild Berry Flavour</div>
-
-      <h1 class="product-info__name">{{ product.title }}</h1>
-      <p class="product-info__tagline">Melatonin + L-Theanine + Passion Flower</p>
-
-      <div class="product-info__stars">
-        ★★★★★ <span>4.9 · 100+ happy sleepers</span>
-      </div>
-
-      <div class="product-info__desc">
-        {{ product.description }}
-      </div>
-
-      <div class="ingredient-pills" style="margin-top:20px;">
-        <span class="pill">🌙 Melatonin</span>
-        <span class="pill">🍃 L-Theanine</span>
-        <span class="pill">🌸 Passion Flower</span>
-      </div>
-
-      <ul class="product-info__benefits">
-        <li><span class="benefit-dot"></span> Fall asleep faster — no more ceiling staring</li>
-        <li><span class="benefit-dot"></span> Stay asleep through the night</li>
-        <li><span class="benefit-dot"></span> Wake up refreshed, not groggy</li>
-        <li><span class="benefit-dot"></span> 60 delicious wild berry gummies per pouch</li>
-        <li><span class="benefit-dot"></span> Vegan, all-natural, no dependency</li>
-      </ul>
-
+      <!-- Price, Qty, ATC -->
       {%- form 'product', product, id: 'product-form' -%}
 
         {%- unless product.has_only_default_variant -%}
@@ -152,6 +123,36 @@
         <span class="trust-badge">🚚 Free delivery over R500</span>
         <span class="trust-badge">🔄 Easy returns</span>
       </div>
+    </div>
+
+    <!-- PRODUCT INFO (right column) -->
+    <div class="product-info" style="padding-top:48px;">
+      <div class="product-info__flavour-badge">🫐 Wild Berry Flavour</div>
+
+      <h1 class="product-info__name">{{ product.title }}</h1>
+      <p class="product-info__tagline">Melatonin + L-Theanine + Passion Flower</p>
+
+      <div class="product-info__stars">
+        ★★★★★ <span>4.9 · 100+ happy sleepers</span>
+      </div>
+
+      <div class="product-info__desc">
+        {{ product.description }}
+      </div>
+
+      <div class="ingredient-pills" style="margin-top:20px;">
+        <span class="pill">🌙 Melatonin</span>
+        <span class="pill">🍃 L-Theanine</span>
+        <span class="pill">🌸 Passion Flower</span>
+      </div>
+
+      <ul class="product-info__benefits">
+        <li><span class="benefit-dot"></span> Fall asleep faster — no more ceiling staring</li>
+        <li><span class="benefit-dot"></span> Stay asleep through the night</li>
+        <li><span class="benefit-dot"></span> Wake up refreshed, not groggy</li>
+        <li><span class="benefit-dot"></span> 60 delicious wild berry gummies per pouch</li>
+        <li><span class="benefit-dot"></span> Vegan, all-natural, no dependency</li>
+      </ul>
 
       <!-- Supplement Facts -->
       <div style="margin-top:40px;padding:28px;background:var(--purple-pale);border-radius:16px;">
