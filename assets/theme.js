@@ -26,9 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
   // Product gallery thumbnails
   document.querySelectorAll('.product-gallery__thumb').forEach(function (thumb) {
     thumb.addEventListener('click', function () {
-      var src = thumb.querySelector('img') ? thumb.querySelector('img').src : null;
+      var thumbImg = thumb.querySelector('img');
       var mainImg = document.querySelector('.product-gallery__main img');
-      if (src && mainImg) mainImg.src = src;
+      if (thumbImg && mainImg) {
+        // Swap out the width param to get the full-res version
+        var src = thumbImg.src.replace(/width=\d+/, 'width=900');
+        mainImg.src = src;
+      }
       document.querySelectorAll('.product-gallery__thumb').forEach(function (t) { t.classList.remove('active'); });
       thumb.classList.add('active');
     });
