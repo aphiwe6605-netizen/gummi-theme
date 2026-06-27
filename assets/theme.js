@@ -43,19 +43,45 @@ document.addEventListener('DOMContentLoaded', function () {
   // Purchase type toggle (One-time / Subscribe & Save)
   document.querySelectorAll('.purchase-toggle').forEach(function (toggle) {
     var btns = toggle.querySelectorAll('.purchase-toggle__btn');
+    // Find the nearest subscribe-options panel
     var panel = toggle.nextElementSibling;
     while (panel && !panel.classList.contains('subscribe-options')) {
       panel = panel.nextElementSibling;
     }
+
     btns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         btns.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
+
         var isSubscribe = btn.dataset.type === 'subscribe';
-        if (panel) { panel.classList.toggle('visible', isSubscribe); }
+        if (panel) {
+          panel.classList.toggle('visible', isSubscribe);
+        }
+
+        // Update price display
+        var priceEl = document.getElementById('product-price');
+        if (priceEl) {
+          var basePrice = parseFloat(priceEl.dataset.basePrice);
+          if (!basePrice) {
+            // Store the original price on first toggle
+            var raw = priceEl.textContent.replace(/[^\d.]/g, '');
+            basePrice = parseFloat(raw);
+            priceEl.dataset.basePrice = basePrice;
+          }
+          var discounted = (basePrice * 0.9).toFixed(2);
+          // Format as South African Rand matching Shopify money format
+          priceEl.textContent = isSubscribe
+            ? 'R ' + discounted
+            : 'R ' + basePrice.toFixed(2);
+        }
+
+        // Update ATC button label
         var form = panel ? panel.nextElementSibling : null;
         var atc = form ? form.querySelector('.add-to-cart') : null;
-        if (atc) { atc.textContent = isSubscribe ? 'Subscribe & Save →' : 'Add to Cart →'; }
+        if (atc) {
+          atc.textContent = isSubscribe ? 'Subscribe & Save →' : 'Add to Cart →';
+        }
       });
     });
   });
