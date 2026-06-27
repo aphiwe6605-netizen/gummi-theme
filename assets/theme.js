@@ -23,20 +23,45 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Product gallery thumbnails
-  document.querySelectorAll('.product-gallery__thumb').forEach(function (thumb) {
-    thumb.addEventListener('click', function () {
-      var thumbImg = thumb.querySelector('img');
-      var mainImg = document.querySelector('.product-gallery__main img');
-      if (thumbImg && mainImg) {
-        // Swap out the width param to get the full-res version
-        var src = thumbImg.src.replace(/width=\d+/, 'width=900');
-        mainImg.src = src;
-      }
-      document.querySelectorAll('.product-gallery__thumb').forEach(function (t) { t.classList.remove('active'); });
-      thumb.classList.add('active');
-    });
+  // Product gallery thumbnails + swipe
+  var thumbs = Array.from(document.querySelectorAll('.product-gallery__thumb'));
+  var mainImg = document.querySelector('.product-gallery__main img');
+
+  function activateThumb(index) {
+    if (index < 0 || index >= thumbs.length) return;
+    var thumbImg = thumbs[index].querySelector('img');
+    if (thumbImg && mainImg) {
+      mainImg.src = thumbImg.src.replace(/width=\d+/, 'width=900');
+    }
+    thumbs.forEach(function (t) { t.classList.remove('active'); });
+    thumbs[index].classList.add('active');
+  }
+
+  function activeIndex() {
+    return thumbs.findIndex(function (t) { return t.classList.contains('active'); });
+  }
+
+  thumbs.forEach(function (thumb, i) {
+    thumb.addEventListener('click', function () { activateThumb(i); });
   });
+
+  // Swipe on the main image
+  var galleryMain = document.querySelector('.product-gallery__main');
+  if (galleryMain) {
+    var touchStartX = 0;
+    galleryMain.addEventListener('touchstart', function (e) {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    galleryMain.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) < 40) return; // too small
+      if (dx < 0) {
+        activateThumb(activeIndex() + 1); // swipe left → next
+      } else {
+        activateThumb(activeIndex() - 1); // swipe right → prev
+      }
+    }, { passive: true });
+  }
 
   // Sticky nav shadow on scroll
   var nav = document.querySelector('.site-nav');
