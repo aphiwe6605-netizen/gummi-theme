@@ -3,10 +3,12 @@
   {%- assign product = all_products.first -%}
 {%- endif -%}
 
+{%- assign first_variant = product.first_available_variant -%}
+
 <section class="featured-product" id="product">
   <div class="featured-product__grid">
 
-    <!-- GALLERY -->
+    <!-- LEFT: GALLERY + PURCHASE ACTIONS -->
     <div class="product-gallery">
       <div class="product-gallery__main">
         {%- if product.featured_image -%}
@@ -20,6 +22,7 @@
           <div style="font-size:80px;">💜</div>
         {%- endif -%}
       </div>
+
       {%- if product.images.size > 1 -%}
       <div class="product-gallery__thumbs">
         {%- for image in product.images limit: 5 -%}
@@ -34,10 +37,73 @@
         {%- endfor -%}
       </div>
       {%- endif -%}
+
+      <!-- Purchase Type Toggle -->
+      <div class="purchase-toggle" role="group" aria-label="Purchase type" style="margin-top:24px;">
+        <button type="button" class="purchase-toggle__btn active" data-type="one-time">
+          <span class="toggle-label">One-time Purchase</span>
+          <span class="toggle-sub">{{ first_variant.price | money }}</span>
+        </button>
+        <button type="button" class="purchase-toggle__btn" data-type="subscribe">
+          <span class="toggle-label">Subscribe &amp; Save <span class="save-badge">10% OFF</span></span>
+          <span class="toggle-sub">From {{ first_variant.price | times: 0.9 | money }}/month</span>
+        </button>
+      </div>
+
+      <!-- Subscription frequency -->
+      <div class="subscribe-options" id="subscribe-options-hp">
+        <label>Delivery frequency</label>
+        <select id="subscribe-freq-hp">
+          <option value="1">Every month — {{ first_variant.price | times: 0.9 | money }}</option>
+          <option value="2">Every 2 months — {{ first_variant.price | times: 0.85 | money }}</option>
+        </select>
+        <div class="subscribe-perk">✅ Cancel or pause anytime · No lock-in</div>
+      </div>
+
+      <!-- Price -->
+      <div class="product-info__price" style="margin-bottom:24px;">
+        {%- if product.compare_at_price > product.price -%}
+          <span class="price" id="product-price">{{ product.price | money }}</span>
+          <s style="font-size:20px;color:var(--text-light);margin-left:12px;">{{ product.compare_at_price | money }}</s>
+        {%- else -%}
+          <span class="price" id="product-price">{{ product.price | money }}</span>
+        {%- endif -%}
+        <p class="price-note">60 gummies · 30-day supply</p>
+      </div>
+
+      <!-- Qty + ATC -->
+      <form action="/cart/add" method="post" enctype="multipart/form-data" id="product-form-hp">
+        <input type="hidden" name="id" value="{{ first_variant.id }}">
+
+        <div class="quantity-selector">
+          <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
+          <input class="qty-input" type="number" name="quantity" value="1" min="1" max="10" aria-label="Quantity">
+          <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+        </div>
+
+        <button
+          type="submit"
+          class="add-to-cart"
+          data-variant-id="{{ first_variant.id }}"
+          {% unless first_variant.available %}disabled{% endunless %}
+        >
+          {%- if first_variant.available -%}
+            Add to Cart →
+          {%- else -%}
+            Sold Out
+          {%- endif -%}
+        </button>
+      </form>
+
+      <div class="product-info__trust" style="margin-top:20px;">
+        <span class="trust-badge">🚚 Free delivery over R500</span>
+        <span class="trust-badge">🔄 Easy returns</span>
+        <span class="trust-badge">🔒 Secure checkout</span>
+      </div>
     </div>
 
-    <!-- INFO -->
-    <div class="product-info">
+    <!-- RIGHT: PRODUCT INFO -->
+    <div class="product-info" style="padding-top:48px;">
       <div class="product-info__flavour-badge">🫐 Wild Berry Flavour</div>
 
       <h1 class="product-info__name">{{ product.title | default: 'Sleep With Benefits' }}</h1>
@@ -65,71 +131,8 @@
         <li><span class="benefit-dot"></span> Vegan, all-natural, no dependency</li>
       </ul>
 
-      <div class="product-info__price">
-        {%- if product.compare_at_price > product.price -%}
-          <span class="price">{{ product.price | money }}</span>
-          <s style="font-size:20px;color:var(--text-light);margin-left:12px;">{{ product.compare_at_price | money }}</s>
-        {%- else -%}
-          <span class="price">{{ product.price | money }}</span>
-        {%- endif -%}
-        <p class="price-note">60 gummies · 30-day supply</p>
-      </div>
-
-      {%- assign first_variant = product.first_available_variant -%}
-
-      <!-- Purchase Type Toggle -->
-      <div class="purchase-toggle" role="group" aria-label="Purchase type">
-        <button type="button" class="purchase-toggle__btn active" data-type="one-time">
-          <span class="toggle-label">One-time Purchase</span>
-          <span class="toggle-sub">{{ first_variant.price | money }}</span>
-        </button>
-        <button type="button" class="purchase-toggle__btn" data-type="subscribe">
-          <span class="toggle-label">Subscribe &amp; Save <span class="save-badge">10% OFF</span></span>
-          <span class="toggle-sub">From {{ first_variant.price | times: 0.9 | money }}/month</span>
-        </button>
-      </div>
-
-      <!-- Subscription frequency (shown when subscribe is selected) -->
-      <div class="subscribe-options" id="subscribe-options-hp">
-        <label>Delivery frequency</label>
-        <select id="subscribe-freq-hp">
-          <option value="1">Every month — {{ first_variant.price | times: 0.9 | money }}</option>
-          <option value="2">Every 2 months — {{ first_variant.price | times: 0.85 | money }}</option>
-        </select>
-        <div class="subscribe-perk">✅ Cancel or pause anytime · No lock-in</div>
-      </div>
-
-      <form action="/cart/add" method="post" enctype="multipart/form-data" id="product-form-hp">
-        <input type="hidden" name="id" value="{{ first_variant.id }}">
-
-        <div class="quantity-selector">
-          <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
-          <input class="qty-input" type="number" name="quantity" value="1" min="1" max="10" aria-label="Quantity">
-          <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
-        </div>
-
-        <button
-          type="submit"
-          class="add-to-cart"
-          data-variant-id="{{ first_variant.id }}"
-          {% unless first_variant.available %}disabled{% endunless %}
-        >
-          {%- if first_variant.available -%}
-            Add to Cart →
-          {%- else -%}
-            Sold Out
-          {%- endif -%}
-        </button>
-      </form>
-
-      <div class="product-info__trust">
-        <span class="trust-badge">🚚 Free delivery over R500</span>
-        <span class="trust-badge">🔄 Easy returns</span>
-        <span class="trust-badge">🔒 Secure checkout</span>
-      </div>
-
       {%- if product != empty -%}
-      <a href="{{ product.url }}" style="display:block;margin-top:16px;font-size:14px;color:var(--purple-mid);font-weight:600;">
+      <a href="{{ product.url }}" style="display:block;margin-top:24px;font-size:14px;color:var(--purple-mid);font-weight:600;">
         View Full Product Details →
       </a>
       {%- endif -%}
