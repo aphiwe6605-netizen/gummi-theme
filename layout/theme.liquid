@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ page_description | default: shop.description | default: 'Gummi — All-natural sleep gummies. Melatonin + L-Theanine + Passion Flower. Sleep with benefits.' }}">
+
+  <title>{{ page_title | default: shop.name }}</title>
+
+  {{ content_for_header }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+</head>
+<body>
+
+  {%- if settings.announcement_text != blank -%}
+  <div class="announcement-bar">
+    {{ settings.announcement_text }}
+  </div>
+  {%- endif -%}
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="{{ routes.root_url }}" class="site-nav__logo">gummi</a>
+
+    <ul class="site-nav__links">
+      <li><a href="#product">Shop</a></li>
+      <li><a href="#ingredients">Ingredients</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+
+    <div class="site-nav__actions">
+      <a href="{{ routes.cart_url }}" class="nav-cart-icon" aria-label="Cart">
+        🛒
+        {%- if cart.item_count > 0 -%}
+        <span class="cart-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+      <a href="#product" class="btn-nav-cta">Shop Now</a>
+    </div>
+  </nav>
+
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {%- render 'footer' -%}
+
+  {{ 'theme.js' | asset_url | script_tag }}
+</body>
+</html>

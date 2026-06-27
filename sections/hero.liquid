@@ -1,0 +1,35 @@
+<section class="hero" id="hero">
+  <div class="hero-stars"></div>
+  <div class="hero__content">
+    <span class="hero__eyebrow">🌙 South Africa's Sleep Gummy</span>
+    <h1 class="hero__title">
+      Sleep <em>with</em><br>benefits.
+    </h1>
+    <p class="hero__sub">
+      You're exhausted. But the moment your head hits the pillow, your brain decides it's showtime.
+      Two gummies. Thirty minutes. That's it.
+    </p>
+    <div class="hero__buttons">
+      <a href="#product" class="btn-primary">Shop Now — R{{ section.settings.price }}</a>
+      <a href="#how" class="btn-secondary">How It Works</a>
+    </div>
+    <div class="hero__badges">
+      <div class="hero__badge-item"><span>🌿</span> All-Natural</div>
+      <div class="hero__badge-item"><span>✨</span> No Grogginess</div>
+      <div class="hero__badge-item"><span>⭐</span> Wild Berry Flavour</div>
+      <div class="hero__badge-item"><span>🇿🇦</span> Made for SA</div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "price", "label": "Product Price", "default": "399" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Sleep with benefits." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Two gummies. Thirty minutes. That's it." }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

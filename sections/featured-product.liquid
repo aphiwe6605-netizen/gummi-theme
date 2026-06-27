@@ -1,0 +1,130 @@
+{%- assign product = all_products[section.settings.product] -%}
+{%- if product == empty -%}
+  {%- assign product = all_products.first -%}
+{%- endif -%}
+
+<section class="featured-product" id="product">
+  <div class="featured-product__grid">
+
+    <!-- GALLERY -->
+    <div class="product-gallery">
+      <div class="product-gallery__main">
+        {%- if product.featured_image -%}
+          <img
+            src="{{ product.featured_image | image_url: width: 800 }}"
+            alt="{{ product.featured_image.alt | default: product.title }}"
+            width="800" height="800"
+            loading="eager"
+          >
+        {%- else -%}
+          <div style="font-size:80px;">💜</div>
+        {%- endif -%}
+      </div>
+      {%- if product.images.size > 1 -%}
+      <div class="product-gallery__thumbs">
+        {%- for image in product.images limit: 5 -%}
+        <div class="product-gallery__thumb {% if forloop.first %}active{% endif %}">
+          <img
+            src="{{ image | image_url: width: 150 }}"
+            alt="{{ image.alt | default: product.title }}"
+            width="72" height="72"
+            loading="lazy"
+          >
+        </div>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+    </div>
+
+    <!-- INFO -->
+    <div class="product-info">
+      <div class="product-info__flavour-badge">🫐 Wild Berry Flavour</div>
+
+      <h1 class="product-info__name">{{ product.title | default: 'Sleep With Benefits' }}</h1>
+      <p class="product-info__tagline">Melatonin + L-Theanine + Passion Flower</p>
+
+      <div class="product-info__stars">
+        ★★★★★ <span>4.9 · 100+ happy sleepers</span>
+      </div>
+
+      <p class="product-info__desc">
+        {{ product.description | default: 'Your body already knows how to sleep. It just needs the right conditions. Gummi creates them — naturally, without knocking you out or leaving you groggy in the morning.' | strip_html | truncate: 200 }}
+      </p>
+
+      <div class="ingredient-pills">
+        <span class="pill">🌙 Melatonin</span>
+        <span class="pill">🍃 L-Theanine</span>
+        <span class="pill">🌸 Passion Flower</span>
+      </div>
+
+      <ul class="product-info__benefits">
+        <li><span class="benefit-dot"></span> Fall asleep faster — no more ceiling staring</li>
+        <li><span class="benefit-dot"></span> Stay asleep through the night</li>
+        <li><span class="benefit-dot"></span> Wake up refreshed, not groggy</li>
+        <li><span class="benefit-dot"></span> 60 delicious wild berry gummies per pouch</li>
+        <li><span class="benefit-dot"></span> Vegan, all-natural, no dependency</li>
+      </ul>
+
+      <div class="product-info__price">
+        {%- if product.compare_at_price > product.price -%}
+          <span class="price">{{ product.price | money }}</span>
+          <s style="font-size:20px;color:var(--text-light);margin-left:12px;">{{ product.compare_at_price | money }}</s>
+        {%- else -%}
+          <span class="price">{{ product.price | money }}</span>
+        {%- endif -%}
+        <p class="price-note">60 gummies · 30-day supply</p>
+      </div>
+
+      {%- assign first_variant = product.first_available_variant -%}
+      <form action="/cart/add" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{ first_variant.id }}">
+
+        <div class="quantity-selector">
+          <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
+          <input class="qty-input" type="number" name="quantity" value="1" min="1" max="10" aria-label="Quantity">
+          <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+        </div>
+
+        <button
+          type="submit"
+          class="add-to-cart"
+          data-variant-id="{{ first_variant.id }}"
+          {% unless first_variant.available %}disabled{% endunless %}
+        >
+          {%- if first_variant.available -%}
+            Add to Cart →
+          {%- else -%}
+            Sold Out
+          {%- endif -%}
+        </button>
+      </form>
+
+      <div class="product-info__trust">
+        <span class="trust-badge">🚚 Free delivery over R500</span>
+        <span class="trust-badge">🔄 Easy returns</span>
+        <span class="trust-badge">🔒 Secure checkout</span>
+      </div>
+
+      {%- if product != empty -%}
+      <a href="{{ product.url }}" style="display:block;margin-top:16px;font-size:14px;color:var(--purple-mid);font-weight:600;">
+        View Full Product Details →
+      </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    }
+  ],
+  "presets": [{ "name": "Featured Product" }]
+}
+{% endschema %}

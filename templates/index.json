@@ -1,0 +1,64 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "price": "399"
+      }
+    },
+    "stats": {
+      "type": "stats-strip",
+      "settings": {}
+    },
+    "trust": {
+      "type": "trust-strip",
+      "settings": {}
+    },
+    "problem": {
+      "type": "problem-section",
+      "settings": {}
+    },
+    "featured_product": {
+      "type": "featured-product",
+      "settings": {}
+    },
+    "ingredients": {
+      "type": "ingredients",
+      "settings": {}
+    },
+    "how_it_works": {
+      "type": "how-it-works",
+      "settings": {}
+    },
+    "lifestyle": {
+      "type": "lifestyle-band",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "text": "I've been using Gummi for about a month now — game changer. I used to lie awake for hours. Now I actually sleep through the night.", "name": "Siya M.", "location": "Cape Town, SA" } },
+        "t2": { "type": "testimonial", "settings": { "text": "Juggling work, kids, cooking — the fatigue was real. This is my third pack and I honestly wish I found these sooner.", "name": "Naledi K.", "location": "Johannesburg, SA" } },
+        "t3": { "type": "testimonial", "settings": { "text": "I tried everything. Nothing worked. Then I tried Gummi. Fell asleep within 20 minutes. I don't know why I waited so long.", "name": "Thabo R.", "location": "Durban, SA" } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "f1": { "type": "faq_item", "settings": { "question": "How many gummies do I take?", "answer": "Take 2 gummies approximately 30 minutes before you want to fall asleep. Do not exceed the recommended dose." } },
+        "f2": { "type": "faq_item", "settings": { "question": "Will I feel groggy in the morning?", "answer": "No. Unlike prescription sleep aids, Gummi uses natural ingredients that work with your body's rhythm — not against it. You wake up refreshed, not knocked out." } },
+        "f3": { "type": "faq_item", "settings": { "question": "Are they habit-forming?", "answer": "No. All three ingredients are non-habit forming and safe for regular use. You can stop at any time without withdrawal." } },
+        "f4": { "type": "faq_item", "settings": { "question": "How long until I see results?", "answer": "Most people notice a difference from the very first night. For best results, use consistently for at least 2 weeks." } },
+        "f5": { "type": "faq_item", "settings": { "question": "Are they vegan and allergen-friendly?", "answer": "Yes — Gummi sleep gummies are vegan, gluten-free, and made with all-natural ingredients." } },
+        "f6": { "type": "faq_item", "settings": { "question": "How do I order?", "answer": "Order directly through our online store. We deliver across South Africa — free shipping on orders over R500." } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6"]
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": { "price": "399" }
+    }
+  },
+  "order": ["hero", "stats", "trust", "problem", "featured_product", "ingredients", "how_it_works", "lifestyle", "testimonials", "faq", "cta"]
+}

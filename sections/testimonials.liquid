@@ -1,0 +1,50 @@
+<section class="testimonials-section" id="reviews">
+  <div class="container text-center">
+    <span class="section-label">Real People. Real Sleep.</span>
+    <h2 class="section-title">What SA is <em>saying.</em></h2>
+    <p class="section-sub centered">Over 100 South Africans finally sleeping through the night.</p>
+
+    <div class="testimonials-grid">
+      {%- for block in section.blocks -%}
+      <div class="testimonial-card" {{ block.shopify_attributes }}>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"{{ block.settings.text }}"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">{{ block.settings.name | slice: 0 }}</div>
+          <div>
+            <div class="author-name">{{ block.settings.name }}</div>
+            <div class="author-location">{{ block.settings.location }}</div>
+          </div>
+        </div>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Review Text", "default": "Game changer. I used to lie awake for hours. Now I take two of these and I'm actually sleeping through the night." },
+        { "type": "text", "id": "name", "label": "Reviewer Name", "default": "Siya M." },
+        { "type": "text", "id": "location", "label": "Location", "default": "Cape Town, SA" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "text": "I've been using Gummi for about a month now — game changer. I used to lie awake for hours. Now I take two of these about 30 minutes before bed and I'm actually sleeping through the night.", "name": "Siya M.", "location": "Cape Town, SA" } },
+        { "type": "testimonial", "settings": { "text": "Juggling work, kids, cooking — the fatigue was real. A friend recommended Gummi and honestly, this is my third pack. I wish I found out about these sooner. I actually wake up refreshed.", "name": "Naledi K.", "location": "Johannesburg, SA" } },
+        { "type": "testimonial", "settings": { "text": "I tried everything — melatonin pills, sleep podcasts, no caffeine. Nothing worked. Then I tried Gummi. Fell asleep within 20 minutes. I don't know why I waited so long.", "name": "Thabo R.", "location": "Durban, SA" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

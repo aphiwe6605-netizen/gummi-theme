@@ -1,0 +1,172 @@
+<section class="product-page">
+  <div class="product-page__grid">
+
+    <!-- GALLERY -->
+    <div class="product-gallery">
+      <p class="product-page__breadcrumb">
+        <a href="{{ routes.root_url }}">Home</a> /
+        <a href="{{ routes.all_products_collection_url }}">Shop</a> /
+        {{ product.title }}
+      </p>
+
+      <div class="product-gallery__main">
+        {%- if product.featured_image -%}
+          <img
+            id="main-product-image"
+            src="{{ product.featured_image | image_url: width: 900 }}"
+            alt="{{ product.featured_image.alt | default: product.title }}"
+            width="900" height="900"
+            loading="eager"
+          >
+        {%- else -%}
+          <div style="font-size:100px;text-align:center;">💜</div>
+        {%- endif -%}
+      </div>
+
+      {%- if product.images.size > 1 -%}
+      <div class="product-gallery__thumbs">
+        {%- for image in product.images limit: 5 -%}
+        <div class="product-gallery__thumb {% if forloop.first %}active{% endif %}">
+          <img
+            src="{{ image | image_url: width: 200 }}"
+            alt="{{ image.alt | default: product.title }}"
+            width="72" height="72"
+            loading="lazy"
+          >
+        </div>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+    </div>
+
+    <!-- PRODUCT INFO -->
+    <div class="product-info" style="padding-top:48px;">
+      <div class="product-info__flavour-badge">🫐 Wild Berry Flavour</div>
+
+      <h1 class="product-info__name">{{ product.title }}</h1>
+      <p class="product-info__tagline">Melatonin + L-Theanine + Passion Flower</p>
+
+      <div class="product-info__stars">
+        ★★★★★ <span>4.9 · 100+ happy sleepers</span>
+      </div>
+
+      <div class="product-info__desc">
+        {{ product.description }}
+      </div>
+
+      <div class="ingredient-pills" style="margin-top:20px;">
+        <span class="pill">🌙 Melatonin</span>
+        <span class="pill">🍃 L-Theanine</span>
+        <span class="pill">🌸 Passion Flower</span>
+      </div>
+
+      <ul class="product-info__benefits">
+        <li><span class="benefit-dot"></span> Fall asleep faster — no more ceiling staring</li>
+        <li><span class="benefit-dot"></span> Stay asleep through the night</li>
+        <li><span class="benefit-dot"></span> Wake up refreshed, not groggy</li>
+        <li><span class="benefit-dot"></span> 60 delicious wild berry gummies per pouch</li>
+        <li><span class="benefit-dot"></span> Vegan, all-natural, no dependency</li>
+      </ul>
+
+      {%- form 'product', product, id: 'product-form' -%}
+
+        {%- unless product.has_only_default_variant -%}
+        <div style="margin-bottom:20px;">
+          {%- for option in product.options_with_values -%}
+          <label for="option-{{ forloop.index }}" style="font-weight:600;font-size:14px;color:var(--text-dark);display:block;margin-bottom:8px;">
+            {{ option.name }}
+          </label>
+          <select
+            id="option-{{ forloop.index }}"
+            name="options[{{ option.name }}]"
+            style="padding:10px 16px;border-radius:8px;border:1.5px solid var(--purple-light);font-family:var(--font-sans);font-size:15px;width:100%;margin-bottom:16px;"
+          >
+            {%- for value in option.values -%}
+            <option value="{{ value }}">{{ value }}</option>
+            {%- endfor -%}
+          </select>
+          {%- endfor -%}
+        </div>
+        {%- endunless -%}
+
+        <input type="hidden" name="id" id="variant-id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        <div class="product-info__price" style="margin-bottom:24px;">
+          {%- if product.compare_at_price > product.price -%}
+            <span class="price" id="product-price">{{ product.price | money }}</span>
+            <s style="font-size:20px;color:var(--text-light);margin-left:12px;">{{ product.compare_at_price | money }}</s>
+            <span style="background:#E8F5E9;color:#2E7D32;padding:4px 12px;border-radius:100px;font-size:13px;font-weight:700;margin-left:8px;">
+              Save {{ product.compare_at_price | minus: product.price | money }}
+            </span>
+          {%- else -%}
+            <span class="price" id="product-price">{{ product.price | money }}</span>
+          {%- endif -%}
+          <p class="price-note">60 gummies · 30-day supply · {{ product.variants.first.sku | default: 'GUM-001' }}</p>
+        </div>
+
+        <div class="quantity-selector">
+          <button type="button" class="qty-btn qty-minus" aria-label="Decrease">−</button>
+          <input class="qty-input" type="number" name="quantity" value="1" min="1" max="10" aria-label="Quantity">
+          <button type="button" class="qty-btn qty-plus" aria-label="Increase">+</button>
+        </div>
+
+        <button
+          type="submit"
+          class="add-to-cart"
+          data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+          {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+        >
+          {%- if product.selected_or_first_available_variant.available -%}
+            Add to Cart →
+          {%- else -%}
+            Sold Out
+          {%- endif -%}
+        </button>
+
+      {%- endform -%}
+
+      <div class="product-info__trust" style="margin-top:20px;">
+        <span class="trust-badge">🔒 Secure Checkout</span>
+        <span class="trust-badge">🚚 Free delivery over R500</span>
+        <span class="trust-badge">🔄 Easy returns</span>
+      </div>
+
+      <!-- Supplement Facts -->
+      <div style="margin-top:40px;padding:28px;background:var(--purple-pale);border-radius:16px;">
+        <h3 style="font-family:var(--font-serif);font-size:20px;margin-bottom:16px;color:var(--text-dark);">Supplement Facts</h3>
+        <table style="width:100%;font-size:14px;color:var(--text-mid);border-collapse:collapse;">
+          <tr style="border-bottom:1px solid rgba(107,63,160,.15);">
+            <td style="padding:10px 0;font-weight:600;color:var(--text-dark);">Serving Size</td>
+            <td style="padding:10px 0;text-align:right;">2 Gummies</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(107,63,160,.15);">
+            <td style="padding:10px 0;font-weight:600;color:var(--text-dark);">Servings Per Container</td>
+            <td style="padding:10px 0;text-align:right;">30</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(107,63,160,.15);">
+            <td style="padding:10px 0;">Melatonin</td>
+            <td style="padding:10px 0;text-align:right;">5mg</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(107,63,160,.15);">
+            <td style="padding:10px 0;">L-Theanine</td>
+            <td style="padding:10px 0;text-align:right;">200mg</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;">Passion Flower Extract</td>
+            <td style="padding:10px 0;text-align:right;">50mg</td>
+          </tr>
+        </table>
+        <p style="font-size:11px;color:var(--text-light);margin-top:12px;">*These statements have not been evaluated by SAHPRA. Not intended to diagnose, treat, cure, or prevent any disease.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Page",
+  "settings": [],
+  "presets": [{ "name": "Product Page" }]
+}
+{% endschema %}

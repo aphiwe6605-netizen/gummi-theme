@@ -1,0 +1,49 @@
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <div class="footer-brand">gummi</div>
+      <p class="footer-tagline">All-natural sleep gummies made for South Africa.<br>Better sleep. Better mornings. That's it.</p>
+      <div class="footer-social">
+        <a href="{{ settings.instagram_url | default: '#' }}" class="social-btn" aria-label="Instagram">📸</a>
+        <a href="{{ settings.facebook_url | default: '#' }}" class="social-btn" aria-label="Facebook">📘</a>
+        <a href="{{ settings.tiktok_url | default: '#' }}" class="social-btn" aria-label="TikTok">🎵</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="{{ routes.all_products_collection_url }}">Sleep Gummies</a></li>
+        <li><a href="/cart">My Cart</a></li>
+        <li><a href="/account">My Account</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="#ingredients">Ingredients</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="{{ routes.blogs_url }}/news">Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="/pages/contact">Contact Us</a></li>
+        <li><a href="/pages/shipping">Shipping Info</a></li>
+        <li><a href="/pages/returns">Returns</a></li>
+        <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <span>© {{ 'now' | date: '%Y' }} Gummi Wellness. All rights reserved. 🇿🇦</span>
+    <span>{{ settings.contact_email | default: 'gummiwellness@gmail.com' }}</span>
+  </div>
+  <p class="footer-disclaimer container">*These statements have not been evaluated by SAHPRA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+</footer>

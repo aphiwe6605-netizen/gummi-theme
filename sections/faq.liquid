@@ -1,0 +1,49 @@
+<section class="faq-section" id="faq">
+  <div class="container text-center">
+    <span class="section-label">Questions</span>
+    <h2 class="section-title">Got <em>questions?</em></h2>
+
+    <div class="faq-list">
+      {%- for block in section.blocks -%}
+      <div class="faq-item" {{ block.shopify_attributes }}>
+        <button class="faq-question" aria-expanded="false">
+          {{ block.settings.question }}
+          <span class="faq-chevron">⌄</span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">{{ block.settings.answer }}</div>
+        </div>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "How many gummies do I take?" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Take 2 gummies approximately 30 minutes before you want to fall asleep. Do not exceed the recommended dose." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        { "type": "faq_item", "settings": { "question": "How many gummies do I take?", "answer": "Take 2 gummies approximately 30 minutes before you want to fall asleep. Do not exceed the recommended dose." } },
+        { "type": "faq_item", "settings": { "question": "Will I feel groggy in the morning?", "answer": "No. Unlike prescription sleep aids, Gummi uses natural ingredients that work with your body's rhythm — not against it. You wake up refreshed, not knocked out." } },
+        { "type": "faq_item", "settings": { "question": "Are Gummi gummies habit-forming?", "answer": "No. All three ingredients — melatonin, l-theanine, and passion flower — are non-habit forming and safe for regular use. You can stop at any time without withdrawal." } },
+        { "type": "faq_item", "settings": { "question": "How long until I see results?", "answer": "Most people notice a difference from the very first night. For best results, use consistently for at least 2 weeks to allow your sleep rhythm to fully reset." } },
+        { "type": "faq_item", "settings": { "question": "Are they vegan and allergen-friendly?", "answer": "Yes — Gummi sleep gummies are vegan, gluten-free, and made with all-natural ingredients. No artificial colours, no nasties." } },
+        { "type": "faq_item", "settings": { "question": "How do I order?", "answer": "Order directly through our online store. We deliver across South Africa — free shipping on orders over R500. Orders are dispatched within 1–2 business days." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
