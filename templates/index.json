@@ -1,9 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
-        "price": "399"
+        "price": "399",
+        "heading": "Sleep with benefits.",
+        "subheading": "Two gummies. Thirty minutes. That's it."
       }
     },
     "stats": {
@@ -20,11 +31,26 @@
     },
     "featured_product": {
       "type": "featured-product",
-      "settings": {}
+      "settings": {
+        "product": "gummi"
+      }
     },
     "ingredients": {
       "type": "ingredients",
-      "settings": {}
+      "settings": {
+        "icon_1": "🌙",
+        "name_1": "Melatonin",
+        "role_1": "The Signal",
+        "desc_1": "Tells your brain it's time to wind down — naturally, not forcefully. Melatonin works with your body's rhythm, not against it. You ease into sleep. You're not knocked out.",
+        "icon_2": "🍃",
+        "name_2": "L-Theanine",
+        "role_2": "The Quiet",
+        "desc_2": "Found naturally in green tea, L-Theanine quiets the mental noise that keeps you awake. The meetings you didn't nail. The thing you said in 2019. Gone. It calms without sedating.",
+        "icon_3": "🌸",
+        "name_3": "Passion Flower",
+        "role_3": "The Anchor",
+        "desc_3": "Used for centuries as a natural calming agent. Modern science now backs what traditional medicine always knew — passion flower keeps your nervous system settled through the night."
+      }
     },
     "how_it_works": {
       "type": "how-it-works",
@@ -37,28 +63,112 @@
     "testimonials": {
       "type": "testimonials",
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "text": "I've been using Gummi for about a month now — game changer. I used to lie awake for hours. Now I actually sleep through the night.", "name": "Siya M.", "location": "Cape Town, SA" } },
-        "t2": { "type": "testimonial", "settings": { "text": "Juggling work, kids, cooking — the fatigue was real. This is my third pack and I honestly wish I found these sooner.", "name": "Naledi K.", "location": "Johannesburg, SA" } },
-        "t3": { "type": "testimonial", "settings": { "text": "I tried everything. Nothing worked. Then I tried Gummi. Fell asleep within 20 minutes. I don't know why I waited so long.", "name": "Thabo R.", "location": "Durban, SA" } }
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "text": "I've been using Gummi for about a month now — game changer. I used to lie awake for hours. Now I actually sleep through the night.",
+            "name": "Siya M.",
+            "location": "Cape Town, SA"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "text": "Juggling work, kids, cooking — the fatigue was real. This is my third pack and I honestly wish I found these sooner.",
+            "name": "Naledi K.",
+            "location": "Johannesburg, SA"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "text": "I tried everything. Nothing worked. Then I tried Gummi. Fell asleep within 20 minutes. I don't know why I waited so long.",
+            "name": "Thabo R.",
+            "location": "Durban, SA"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3"]
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {}
     },
     "faq": {
       "type": "faq",
       "blocks": {
-        "f1": { "type": "faq_item", "settings": { "question": "How many gummies do I take?", "answer": "Take 2 gummies approximately 30 minutes before you want to fall asleep. Do not exceed the recommended dose." } },
-        "f2": { "type": "faq_item", "settings": { "question": "Will I feel groggy in the morning?", "answer": "No. Unlike prescription sleep aids, Gummi uses natural ingredients that work with your body's rhythm — not against it. You wake up refreshed, not knocked out." } },
-        "f3": { "type": "faq_item", "settings": { "question": "Are they habit-forming?", "answer": "No. All three ingredients are non-habit forming and safe for regular use. You can stop at any time without withdrawal." } },
-        "f4": { "type": "faq_item", "settings": { "question": "How long until I see results?", "answer": "Most people notice a difference from the very first night. For best results, use consistently for at least 2 weeks." } },
-        "f5": { "type": "faq_item", "settings": { "question": "Are they vegan and allergen-friendly?", "answer": "Yes — Gummi sleep gummies are vegan, gluten-free, and made with all-natural ingredients." } },
-        "f6": { "type": "faq_item", "settings": { "question": "How do I order?", "answer": "Order directly through our online store. We deliver across South Africa — free shipping on orders over R500." } }
+        "f1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How many gummies do I take?",
+            "answer": "Take 2 gummies approximately 30 minutes before you want to fall asleep. Do not exceed the recommended dose."
+          }
+        },
+        "f2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will I feel groggy in the morning?",
+            "answer": "No. Unlike prescription sleep aids, Gummi uses natural ingredients that work with your body's rhythm — not against it. You wake up refreshed, not knocked out."
+          }
+        },
+        "f3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are they habit-forming?",
+            "answer": "No. All three ingredients are non-habit forming and safe for regular use. You can stop at any time without withdrawal."
+          }
+        },
+        "f4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long until I see results?",
+            "answer": "Most people notice a difference from the very first night. For best results, use consistently for at least 2 weeks."
+          }
+        },
+        "f5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are they vegan and allergen-friendly?",
+            "answer": "Yes — Gummi sleep gummies are vegan, gluten-free, and made with all-natural ingredients."
+          }
+        },
+        "f6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I order?",
+            "answer": "Order directly through our online store. We deliver across South Africa — free shipping on orders over R500."
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6"]
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6"
+      ],
+      "settings": {}
     },
     "cta": {
       "type": "cta-banner",
-      "settings": { "price": "399" }
+      "settings": {
+        "price": "399"
+      }
     }
   },
-  "order": ["hero", "stats", "trust", "problem", "featured_product", "ingredients", "how_it_works", "lifestyle", "testimonials", "faq", "cta"]
+  "order": [
+    "hero",
+    "stats",
+    "trust",
+    "problem",
+    "featured_product",
+    "ingredients",
+    "how_it_works",
+    "lifestyle",
+    "testimonials",
+    "faq",
+    "cta"
+  ]
 }
