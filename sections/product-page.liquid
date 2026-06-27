@@ -1,4 +1,4 @@
-<section class="product-page">
+<section class="product-page" style="padding-bottom:0;">
   <div class="product-page__grid">
 
     <!-- GALLERY + PURCHASE ACTIONS (left column) -->
@@ -88,7 +88,7 @@
           {%- else -%}
             <span class="price" id="product-price">{{ product.price | money }}</span>
           {%- endif -%}
-          <p class="price-note">60 gummies · 30-day supply · {{ product.variants.first.sku | default: 'GUM-001' }}</p>
+          <p class="price-note">60 gummies · 30-day supply  · {{ product.variants.first.sku | default: 'GUM-001' }}</p>
         </div>
 
         <div class="quantity-selector">
@@ -178,6 +178,7 @@
 
     </div>
   </div>
+
 
 </section>
 
