@@ -119,6 +119,14 @@ document.addEventListener('DOMContentLoaded', function () {
   var atcBtn = document.querySelector('.add-to-cart');
   if (atcBtn) {
     atcBtn.addEventListener('click', function (e) {
+      // If subscribe mode is active, go to subscription checkout
+      var activeToggle = document.querySelector('.purchase-toggle__btn.active');
+      if (activeToggle && activeToggle.dataset.type === 'subscribe') {
+        window.location.href = '/pages/subscribe';
+        return;
+      }
+
+      // Once-off purchase — normal cart flow
       var variantId = atcBtn.dataset.variantId;
       var qty = qtyInput ? parseInt(qtyInput.value) : 1;
       if (!variantId) return;

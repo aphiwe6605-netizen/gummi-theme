@@ -1,0 +1,59 @@
+<section class="thankyou-page">
+  <div class="container">
+    <div class="thankyou-card">
+      <div class="thankyou-icon">🌙</div>
+      <h1 class="thankyou-title">You're subscribed!</h1>
+      <p class="thankyou-sub">Thank you for subscribing to Gummi. Better sleep starts tonight.</p>
+      <p class="thankyou-detail">A confirmation email is on its way from PayFast. Your card will be charged R450 today and automatically on the same date each month. You can manage or cancel your subscription anytime via PayFast.</p>
+      <a href="/" class="btn-primary">Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.thankyou-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  background: var(--cream);
+}
+.thankyou-card {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 52px 40px;
+  border: 1px solid rgba(167,139,204,0.2);
+  box-shadow: 0 8px 40px rgba(59,31,107,.07);
+}
+.thankyou-icon { font-size: 72px; margin-bottom: 24px; }
+.thankyou-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+.thankyou-sub {
+  font-size: 18px;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.thankyou-detail {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 36px;
+  line-height: 1.8;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Thank You Page",
+  "settings": [],
+  "presets": [{ "name": "Thank You Page" }]
+}
+{% endschema %}
