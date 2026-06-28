@@ -53,6 +53,8 @@
         <p class="subscribe-checkout__form-sub">We'll redirect you to PayFast to complete payment securely.</p>
 
         <form id="subscribe-form" class="subscribe-form" novalidate>
+
+          <!-- Name -->
           <div class="subscribe-form__row">
             <div class="subscribe-form__group">
               <label for="sf-first">First name</label>
@@ -64,10 +66,52 @@
             </div>
           </div>
 
+          <!-- Contact -->
+          <div class="subscribe-form__row">
+            <div class="subscribe-form__group">
+              <label for="sf-email">Email address</label>
+              <input type="email" id="sf-email" placeholder="jane@example.com" required autocomplete="email">
+              <span class="subscribe-form__hint">Receipt sent here</span>
+            </div>
+            <div class="subscribe-form__group">
+              <label for="sf-phone">Phone number</label>
+              <input type="tel" id="sf-phone" placeholder="071 234 5678" required autocomplete="tel">
+            </div>
+          </div>
+
+          <!-- Delivery address -->
+          <div class="subscribe-form__section-label">Delivery address</div>
+
           <div class="subscribe-form__group">
-            <label for="sf-email">Email address</label>
-            <input type="email" id="sf-email" placeholder="jane@example.com" required autocomplete="email">
-            <span class="subscribe-form__hint">PayFast will send your receipt here</span>
+            <label for="sf-address">Street address</label>
+            <input type="text" id="sf-address" placeholder="12 Main Road, Apt 3" required autocomplete="street-address">
+          </div>
+
+          <div class="subscribe-form__row">
+            <div class="subscribe-form__group">
+              <label for="sf-city">City / Town</label>
+              <input type="text" id="sf-city" placeholder="Cape Town" required autocomplete="address-level2">
+            </div>
+            <div class="subscribe-form__group">
+              <label for="sf-province">Province</label>
+              <select id="sf-province" required>
+                <option value="">Select...</option>
+                <option>Eastern Cape</option>
+                <option>Free State</option>
+                <option>Gauteng</option>
+                <option>KwaZulu-Natal</option>
+                <option>Limpopo</option>
+                <option>Mpumalanga</option>
+                <option>Northern Cape</option>
+                <option>North West</option>
+                <option>Western Cape</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="subscribe-form__group">
+            <label for="sf-postal">Postal code</label>
+            <input type="text" id="sf-postal" placeholder="8001" required autocomplete="postal-code" maxlength="4" pattern="\d{4}" style="max-width:140px;">
           </div>
 
           <div id="subscribe-error" class="subscribe-error" style="display:none;"></div>
@@ -95,8 +139,13 @@
           <input type="hidden" name="name_first" id="pf-first" value="">
           <input type="hidden" name="name_last" id="pf-last" value="">
           <input type="hidden" name="email_address" id="pf-email" value="">
+          <input type="hidden" name="cell_number" id="pf-phone" value="">
           <input type="hidden" name="amount" value="450.00">
           <input type="hidden" name="item_name" value="Gummi Sleep Gummies Monthly Subscription">
+          <input type="hidden" name="custom_str1" id="pf-address" value="">
+          <input type="hidden" name="custom_str2" id="pf-city" value="">
+          <input type="hidden" name="custom_str3" id="pf-province" value="">
+          <input type="hidden" name="custom_str4" id="pf-postal" value="">
           <input type="hidden" name="subscription_type" value="1">
           <input type="hidden" name="billing_date" id="pf-billing-date" value="">
           <input type="hidden" name="recurring_amount" value="450.00">
@@ -242,6 +291,18 @@
   line-height: 1.5;
 }
 
+.subscribe-form__section-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--purple-deep);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 14px;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(167,139,204,0.2);
+}
+
 .subscribe-form__row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -258,7 +319,8 @@
   font-weight: 600;
   color: var(--text-dark);
 }
-.subscribe-form__group input {
+.subscribe-form__group input,
+.subscribe-form__group select {
   padding: 12px 16px;
   border: 1.5px solid rgba(167,139,204,0.35);
   border-radius: 10px;
@@ -268,8 +330,11 @@
   background: var(--cream);
   transition: border-color .2s, background .2s;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
-.subscribe-form__group input:focus {
+.subscribe-form__group input:focus,
+.subscribe-form__group select:focus {
   border-color: var(--purple-mid);
   background: var(--white);
 }
@@ -324,8 +389,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.2/spark-md5.min.js"></script>
 <script>
 (function () {
-  /* URL encode matching PHP's urlencode() exactly:
-     spaces → +, and encode chars that encodeURIComponent leaves bare */
+  /* URL encode matching PHP's urlencode() exactly */
   function pfEnc(v) {
     return encodeURIComponent(String(v).trim())
       .replace(/%20/g, '+')
@@ -337,20 +401,30 @@
   document.getElementById('subscribe-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    var first  = document.getElementById('sf-first').value.trim();
-    var last   = document.getElementById('sf-last').value.trim();
-    var email  = document.getElementById('sf-email').value.trim();
-    var errEl  = document.getElementById('subscribe-error');
-    var btn    = document.getElementById('subscribe-submit-btn');
+    var first    = document.getElementById('sf-first').value.trim();
+    var last     = document.getElementById('sf-last').value.trim();
+    var email    = document.getElementById('sf-email').value.trim();
+    var phone    = document.getElementById('sf-phone').value.trim();
+    var address  = document.getElementById('sf-address').value.trim();
+    var city     = document.getElementById('sf-city').value.trim();
+    var province = document.getElementById('sf-province').value.trim();
+    var postal   = document.getElementById('sf-postal').value.trim();
+    var errEl    = document.getElementById('subscribe-error');
+    var btn      = document.getElementById('subscribe-submit-btn');
 
     /* Validate */
-    if (!first || !last || !email) {
+    if (!first || !last || !email || !phone || !address || !city || !province || !postal) {
       errEl.textContent = 'Please fill in all fields.';
       errEl.style.display = 'block';
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errEl.textContent = 'Please enter a valid email address.';
+      errEl.style.display = 'block';
+      return;
+    }
+    if (!/^\d{4}$/.test(postal)) {
+      errEl.textContent = 'Please enter a valid 4-digit postal code.';
       errEl.style.display = 'block';
       return;
     }
@@ -374,8 +448,13 @@
       ['name_first',       first],
       ['name_last',        last],
       ['email_address',    email],
+      ['cell_number',      phone],
       ['amount',           '450.00'],
       ['item_name',        'Gummi Sleep Gummies Monthly Subscription'],
+      ['custom_str1',      address],
+      ['custom_str2',      city],
+      ['custom_str3',      province],
+      ['custom_str4',      postal],
       ['subscription_type','1'],
       ['billing_date',     billingDate],
       ['recurring_amount', '450.00'],
@@ -384,7 +463,6 @@
     ];
 
     /* Build signature string, append passphrase, then hash */
-    /* Passphrase is appended LAST and never sent as a form field */
     var sigStr = params.map(function (p) { return p[0] + '=' + pfEnc(p[1]); }).join('&');
     sigStr += '&passphrase=' + pfEnc('Gummiwellness_2003');
     var signature = SparkMD5.hash(sigStr);
@@ -393,6 +471,11 @@
     document.getElementById('pf-first').value        = first;
     document.getElementById('pf-last').value         = last;
     document.getElementById('pf-email').value        = email;
+    document.getElementById('pf-phone').value        = phone;
+    document.getElementById('pf-address').value      = address;
+    document.getElementById('pf-city').value         = city;
+    document.getElementById('pf-province').value     = province;
+    document.getElementById('pf-postal').value       = postal;
     document.getElementById('pf-billing-date').value = billingDate;
     document.getElementById('pf-signature').value    = signature;
 
