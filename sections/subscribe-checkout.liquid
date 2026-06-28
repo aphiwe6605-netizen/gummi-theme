@@ -383,8 +383,10 @@
       ['cycles',           '0']
     ];
 
-    /* Build signature string & hash it with SparkMD5 */
+    /* Build signature string, append passphrase, then hash */
+    /* Passphrase is appended LAST and never sent as a form field */
     var sigStr = params.map(function (p) { return p[0] + '=' + pfEnc(p[1]); }).join('&');
+    sigStr += '&passphrase=' + pfEnc('Gummiwellness_2003');
     var signature = SparkMD5.hash(sigStr);
 
     /* Populate the hidden PayFast form */
