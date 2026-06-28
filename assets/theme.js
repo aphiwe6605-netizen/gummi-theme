@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // If subscribe mode is active, go to subscription checkout
       var activeToggle = document.querySelector('.purchase-toggle__btn.active');
       if (activeToggle && activeToggle.dataset.type === 'subscribe') {
+        e.preventDefault();
         window.location.href = '/pages/subscribe';
         return;
       }
