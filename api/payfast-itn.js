@@ -71,18 +71,53 @@ module.exports = async (req, res) => {
     }
   };
 
-  try {
-    const r = await fetch(`https://${SHOPIFY_DOMAIN}/admin/api/2024-01/draft_orders.json`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Shopify-Access-Token': SHOPIFY_TOKEN },
-      body: JSON.stringify(draftOrder)
-    });
-    if (!r.ok) { console.error('Shopify error:', await r.text()); return res.status(500).send('Order creation failed'); }
-    const result = await r.json();
-    console.log('Draft order created:', result.draft_order?.id);
+ try {
+    const shopifyRes = await fetch(
+      `https://${SHOPIFY_DOMAIN}/admin/api/2024-01/draft_orders.json`,
+      {
+        method:  'POST',
+        headers: {
+          'Content-Type':           'application/json',
+          'X-Shopify-Access-Token': SHOPIFY_TOKEN
+        },
+        body: JSON.stringify(draftOrder)
+      }
+    );
+
+    if (!shopifyRes.ok) {
+      const err = await shopifyRes.text();
+      console.error('Shopify API error:', err);
+      return res.status(500).send('Order creation failed');
+    }
+
+    const result = await shopifyRes.json();
+    const draftId = result.draft_order?.id;
+    console.log('Draft order created:', draftId);
+
+    // Complete the draft order → converts to a real order
+    const completeRes = await fetch(
+      `https://${SHOPIFY_DOMAIN}/admin/api/2024-01/draft_orders/${draftId}/complete.json`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type':           'application/json',
+          'X-Shopify-Access-Token': SHOPIFY_TOKEN
+        }
+      }
+    );
+
+    if (!completeRes.ok) {
+      const err = await completeRes.text();
+      console.error('Order completion error:', err);
+      return res.status(500).send('Order completion failed');
+    }
+
+    const completed = await completeRes.json();
+    console.log('Order created:', completed.draft_order?.order_id);
     return res.status(200).send('OK');
+
   } catch (err) {
-    console.error('Error:', err.message);
+    console.error('Fetch error:', err.message);
     return res.status(500).send('Server error');
   }
 };
