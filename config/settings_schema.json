@@ -1,1 +1,40 @@
-[]
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Gummi",
+    "theme_version": "1.0.0",
+    "theme_author": "Gummi Wellness",
+    "theme_documentation_url": "https://gummi-wellness.com",
+    "theme_support_url": "https://gummi-wellness.com"
+  },
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image"
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Announcement Bar Text",
+        "default": "🇿🇦 Free delivery on orders over R500 · All-natural sleep gummies · 60 count per pouch"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Contact Email",
+        "default": "gummiwellness@gmail.com"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
+      { "type": "url", "id": "facebook_url", "label": "Facebook URL" },
+      { "type": "url", "id": "tiktok_url", "label": "TikTok URL" }
+    ]
+  }
+]
