@@ -60,33 +60,43 @@ module.exports = async (req, res) => {
   const isPayment = body.payment_status === 'COMPLETE' || body.payment_status === 'SUBSCR_PAYMENT';
   if (!isPayment) return res.status(200).send('OK');
 
+  const address = {
+    first_name:   body.name_first  || '',
+    last_name:    body.name_last   || '',
+    address1:     body.custom_str1 || '',
+    city:         body.custom_str2 || '',
+    province:     body.custom_str3 || '',
+    zip:          body.custom_str4 || '',
+    country_code: 'ZA',
+    phone:        body.cell_number || ''
+  };
+
   const draftOrder = {
     draft_order: {
+      email: body.email_address || '',
+      phone: body.cell_number   || '',
       line_items: [{ title: 'Gummi Sleep Gummies Monthly Subscription', price: body.amount_gross || '50.00', quantity: 1, requires_shipping: true }],
       customer: { first_name: body.name_first || '', last_name: body.name_last || '', email: body.email_address || '', phone: body.cell_number || '' },
-      shipping_address: { first_name: body.name_first || '', last_name: body.name_last || '', address1: body.custom_str1 || '', city: body.custom_str2 || '', province: body.custom_str3 || '', zip: body.custom_str4 || '', country_code: 'ZA', phone: body.cell_number || '' },
+      shipping_address: address,
+      billing_address:  address,
       note: `PayFast | ID: ${body.pf_payment_id || '-'} | Status: ${body.payment_status} | Token: ${body.token || '-'} | Amount: R${body.amount_gross}`,
       tags: 'subscription,payfast',
       use_customer_default_address: false
     }
   };
 
- try {
+  try {
     const shopifyRes = await fetch(
       `https://${SHOPIFY_DOMAIN}/admin/api/2024-01/draft_orders.json`,
       {
         method:  'POST',
-        headers: {
-          'Content-Type':           'application/json',
-          'X-Shopify-Access-Token': SHOPIFY_TOKEN
-        },
+        headers: { 'Content-Type': 'application/json', 'X-Shopify-Access-Token': SHOPIFY_TOKEN },
         body: JSON.stringify(draftOrder)
       }
     );
 
     if (!shopifyRes.ok) {
-      const err = await shopifyRes.text();
-      console.error('Shopify API error:', err);
+      console.error('Shopify API error:', await shopifyRes.text());
       return res.status(500).send('Order creation failed');
     }
 
@@ -94,21 +104,16 @@ module.exports = async (req, res) => {
     const draftId = result.draft_order?.id;
     console.log('Draft order created:', draftId);
 
-    // Complete the draft order → converts to a real order
     const completeRes = await fetch(
       `https://${SHOPIFY_DOMAIN}/admin/api/2024-01/draft_orders/${draftId}/complete.json`,
       {
         method: 'PUT',
-        headers: {
-          'Content-Type':           'application/json',
-          'X-Shopify-Access-Token': SHOPIFY_TOKEN
-        }
+        headers: { 'Content-Type': 'application/json', 'X-Shopify-Access-Token': SHOPIFY_TOKEN }
       }
     );
 
     if (!completeRes.ok) {
-      const err = await completeRes.text();
-      console.error('Order completion error:', err);
+      console.error('Order completion error:', await completeRes.text());
       return res.status(500).send('Order completion failed');
     }
 
