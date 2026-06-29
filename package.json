@@ -1,0 +1,9 @@
+{
+  "name": "gummi-payfast-webhook",
+  "version": "1.0.0",
+  "description": "PayFast ITN webhook → Shopify draft orders for Gummi",
+  "private": true,
+  "engines": {
+    "node": "18.x"
+  }
+}

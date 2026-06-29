@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "functions": {
+    "api/payfast-itn.js": {
+      "memory": 128,
+      "maxDuration": 10
+    },
+    "api/shopify-setup.js": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  }
+}
