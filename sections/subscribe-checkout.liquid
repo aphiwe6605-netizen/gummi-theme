@@ -135,7 +135,7 @@
           <input type="hidden" name="merchant_key" value="can3tiywcph5d">
           <input type="hidden" name="return_url" value="{{ shop.url }}/pages/thank-you">
           <input type="hidden" name="cancel_url" value="{{ shop.url }}/pages/subscribe">
-          <input type="hidden" name="notify_url" value="{{ shop.url }}/">
+          <input type="hidden" name="notify_url" value="https://gummi-theme.vercel.app/api/payfast-itn">
           <input type="hidden" name="name_first" id="pf-first" value="">
           <input type="hidden" name="name_last" id="pf-last" value="">
           <input type="hidden" name="email_address" id="pf-email" value="">
@@ -444,7 +444,7 @@
       ['merchant_key',     'can3tiywcph5d'],
       ['return_url',       shopUrl + '/pages/thank-you'],
       ['cancel_url',       shopUrl + '/pages/subscribe'],
-      ['notify_url',       shopUrl + '/'],
+      ['notify_url',       'https://gummi-theme.vercel.app/api/payfast-itn'],
       ['name_first',       first],
       ['name_last',        last],
       ['email_address',    email],
