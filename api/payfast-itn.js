@@ -105,7 +105,7 @@ module.exports = async (req, res) => {
     console.log('Draft order created:', draftId);
 
     const completeRes = await fetch(
-      `https://${SHOPIFY_DOMAIN}/admin/api/2024-01/draft_orders/${draftId}/complete.json`,
+      `https://${SHOPIFY_DOMAIN}/admin/api/2024-01/draft_orders/${draftId}/complete.json?send_receipt=true`,
       {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'X-Shopify-Access-Token': SHOPIFY_TOKEN }
