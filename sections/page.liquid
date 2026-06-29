@@ -1,0 +1,52 @@
+<section class="page-content">
+  <div class="container">
+    <h1 class="page-content__title">{{ page.title }}</h1>
+    <div class="page-content__body rte">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+<style>
+.page-content {
+  min-height: 70vh;
+  padding: 80px 24px;
+  background: var(--cream);
+}
+.page-content .container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.page-content__title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  color: var(--text-dark);
+  margin-bottom: 32px;
+}
+.page-content__body {
+  font-size: 16px;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+.page-content__body h2 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--text-dark);
+  margin: 36px 0 12px;
+}
+.page-content__body p {
+  margin-bottom: 16px;
+}
+.page-content__body a {
+  color: var(--purple-mid);
+  text-decoration: underline;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [],
+  "presets": [{ "name": "Page" }]
+}
+{% endschema %}
