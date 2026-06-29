@@ -4,6 +4,6 @@
   "description": "PayFast ITN webhook → Shopify draft orders for Gummi",
   "private": true,
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   }
 }
