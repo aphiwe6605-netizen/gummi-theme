@@ -7,6 +7,10 @@
 
   <title>{{ page_title | default: shop.name }}</title>
 
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+  {%- endif -%}
+
   {{ content_for_header }}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
