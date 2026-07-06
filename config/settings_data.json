@@ -56,7 +56,14 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "6676085920706538770": {
+        "type": "shopify://apps/scratch-win-email-popups-as/blocks/scratch_card_button/b66a61ea-b24f-4247-9301-0cf82a3e298d",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {}
 }
