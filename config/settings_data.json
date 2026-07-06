@@ -58,10 +58,26 @@
     },
     "content_for_index": [],
     "blocks": {
-      "6676085920706538770": {
-        "type": "shopify://apps/scratch-win-email-popups-as/blocks/scratch_card_button/b66a61ea-b24f-4247-9301-0cf82a3e298d",
+      "13936575979562928026": {
+        "type": "shopify://apps/superpops/blocks/superpops-game/019a33f5-d526-7fd2-abfc-ee4b6722f9d2",
         "disabled": false,
-        "settings": {}
+        "settings": {
+          "enabled": true,
+          "trigger_type": "delay",
+          "popup_delay": 3,
+          "scroll_depth": 50,
+          "show_frequency": "session",
+          "min_count": 3,
+          "device_target": "both",
+          "retrigger_enabled": false,
+          "reopen_fab_enabled": false,
+          "reopen_fab_position": "bottom-right",
+          "reopen_fab_label": "Play to win",
+          "reopen_fab_icon": "🎁",
+          "reopen_fab_bg_color": "#7B61FF",
+          "reopen_fab_text_color": "#FFFFFF",
+          "reopen_fab_shape": "pill"
+        }
       }
     }
   },
