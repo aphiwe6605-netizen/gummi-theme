@@ -13,7 +13,9 @@
       <!-- LINE ITEMS -->
       <div class="cart-items">
         {%- for item in cart.items -%}
-        <div class="cart-item" data-key="{{ item.key }}">
+        {%- assign is_gift = false -%}
+        {%- if item.properties['_gummi_gift'] == 'true' -%}{%- assign is_gift = true -%}{%- endif -%}
+        <div class="cart-item{% if is_gift %} cart-item--gift{% endif %}" data-key="{{ item.key }}">
           <a href="{{ item.url }}" class="cart-item__image-wrap">
             {%- if item.image -%}
             <img
@@ -34,10 +36,18 @@
                 {%- unless item.variant.title == 'Default Title' -%}
                 <p class="cart-item__variant">{{ item.variant.title }}</p>
                 {%- endunless -%}
+                {%- if is_gift -%}
+                <p class="cart-item__gift-tag">🎁 Buy 2 Get 1 Free</p>
+                {%- endif -%}
               </div>
+              {%- if is_gift -%}
+              <span class="cart-item__price cart-item__price--free">FREE</span>
+              {%- else -%}
               <span class="cart-item__price">{{ item.final_line_price | money }}</span>
+              {%- endif -%}
             </div>
 
+            {%- unless is_gift -%}
             <div class="cart-item__bottom">
               <div class="cart-qty">
                 <button type="button" class="cart-qty__btn" data-action="minus" data-key="{{ item.key }}" data-qty="{{ item.quantity | minus: 1 }}" aria-label="Decrease">−</button>
@@ -48,6 +58,7 @@
                 Remove
               </button>
             </div>
+            {%- endunless -%}
           </div>
         </div>
         {%- endfor -%}
@@ -263,6 +274,30 @@
   padding: 0;
 }
 .cart-item__remove:hover { color: #c0392b; }
+
+/* GIFT ITEM */
+.cart-item--gift {
+  background: #f0faf0;
+  border-radius: 12px;
+  padding: 28px 12px;
+  margin: 0 -12px;
+}
+.cart-item__price--free {
+  background: #E8F5E9;
+  color: #2E7D32;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+.cart-item__gift-tag {
+  font-size: 12px;
+  color: #2E7D32;
+  font-weight: 600;
+  margin-top: 4px;
+}
 
 /* SUMMARY */
 .cart-summary {
