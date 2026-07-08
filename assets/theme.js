@@ -27,11 +27,19 @@ document.addEventListener('DOMContentLoaded', function () {
   var thumbs = Array.from(document.querySelectorAll('.product-gallery__thumb'));
   var mainImg = document.querySelector('.product-gallery__main img');
 
+  if (mainImg) {
+    mainImg.style.transition = 'opacity 0.25s ease';
+  }
+
   function activateThumb(index) {
     if (index < 0 || index >= thumbs.length) return;
     var thumbImg = thumbs[index].querySelector('img');
     if (thumbImg && mainImg) {
-      mainImg.src = thumbImg.src.replace(/width=\d+/, 'width=900');
+      mainImg.style.opacity = '0';
+      setTimeout(function () {
+        mainImg.src = thumbImg.src.replace(/width=\d+/, 'width=900');
+        mainImg.style.opacity = '1';
+      }, 200);
     }
     thumbs.forEach(function (t) { t.classList.remove('active'); });
     thumbs[index].classList.add('active');
