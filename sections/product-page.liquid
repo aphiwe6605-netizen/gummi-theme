@@ -6,7 +6,7 @@
 </div>
 {%- endif -%}
 {%- if section.settings.banner_image_2 -%}
-<div style="width:100%;max-width:100%;overflow:hidden;margin-bottom:0;border-radius:0 0 16px 16px;">
+<div style="width:100%;max-width:100%;overflow:hidden;margin-bottom:40px;border-radius:0 0 16px 16px;">
   <div style="position:relative;width:100%;padding-top:56.25%;">
     <img src="{{ section.settings.banner_image_2 | image_url: width: 1600 }}" alt="{{ section.settings.banner_image_2.alt | default: 'Gummi banner 2' }}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
   </div>
@@ -41,27 +41,31 @@
 @keyframes reviews-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 #reviews-track{animation:reviews-scroll 35s linear infinite}
 #reviews-track:hover{animation-play-state:paused}
-@media (max-width: 767px) {
-  #reviews-wrapper {
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    padding-left: 20px;
-    padding-right: 20px;
-    scrollbar-width: none;
-  }
-  #reviews-wrapper::-webkit-scrollbar { display: none; }
-  #reviews-track {
-    animation: none !important;
-    width: auto !important;
-    transform: none !important;
-    flex-wrap: nowrap;
-  }
-  #reviews-track > [aria-hidden="true"] { display: none !important; }
-  #reviews-track > div { scroll-snap-align: start; min-width: 75vw !important; max-width: 75vw !important; }
+@media(max-width:767px){
+  #reviews-wrapper{overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-left:20px;padding-right:20px;}
+  #reviews-wrapper::-webkit-scrollbar{display:none}
+  #reviews-track{animation:none!important;width:max-content!important;transform:none!important}
+  #reviews-track>div{min-width:75vw!important;max-width:75vw!important}
 }
 </style>
+<script>
+(function(){
+  if(window.innerWidth>767)return;
+  var w=document.getElementById('reviews-wrapper');
+  if(!w)return;
+  var speed=0.5,paused=false,t;
+  function tick(){
+    if(!paused){
+      w.scrollLeft+=speed;
+      if(w.scrollLeft>=w.scrollWidth/2)w.scrollLeft-=w.scrollWidth/2;
+    }
+    requestAnimationFrame(tick);
+  }
+  w.addEventListener('touchstart',function(){paused=true;clearTimeout(t);},{passive:true});
+  w.addEventListener('touchend',function(){t=setTimeout(function(){paused=false;},2500);},{passive:true});
+  requestAnimationFrame(tick);
+})();
+</script>
 {%- endif -%}
 <section class="product-page" style="padding-bottom:0;">
   <div class="product-page__grid">
