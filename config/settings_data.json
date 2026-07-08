@@ -18,6 +18,21 @@
     "sections": {
       "product-page": {
         "type": "product-page",
+        "blocks": {
+          "review_MWkPfg": {
+            "type": "review",
+            "settings": {
+              "profile_image": "shopify://shop_images/hf_20260708_190048_e90f1f47-4c0d-4b11-8822-e330419fa15f.png",
+              "customer_name": "H. Fourie",
+              "review_text": "These sleep gummies work. Me and my partner have been waking up a lot through the night and we both gave these a try and they really work to help keep us asleep through the night and feeling great in the morning.",
+              "star_rating": 5,
+              "show_verified": true
+            }
+          }
+        },
+        "block_order": [
+          "review_MWkPfg"
+        ],
         "settings": {
           "banner_image": "shopify://shop_images/idea.png",
           "banner_image_2": "shopify://shop_images/idea-2.png"
