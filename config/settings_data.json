@@ -19,7 +19,8 @@
       "product-page": {
         "type": "product-page",
         "settings": {
-          "banner_image": "shopify://shop_images/idea.png"
+          "banner_image": "shopify://shop_images/idea.png",
+          "banner_image_2": "shopify://shop_images/idea-2.png"
         }
       },
       "ingredients": {
