@@ -11,6 +11,19 @@
 </div>
 {%- endif -%}
 
+{%- if section.settings.banner_image_2 -%}
+<div style="width:100%;max-width:100%;overflow:hidden;margin-bottom:40px;border-radius:16px;">
+  <div style="position:relative;width:100%;padding-top:56.25%;">
+    <img
+      src="{{ section.settings.banner_image_2 | image_url: width: 1600 }}"
+      alt="{{ section.settings.banner_image_2.alt | default: 'Gummi banner 2' }}"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"
+      loading="lazy"
+    >
+  </div>
+</div>
+{%- endif -%}
+
 <section class="product-page" style="padding-bottom:0;">
   <div class="product-page__grid">
 
@@ -204,6 +217,12 @@
       "id": "banner_image",
       "label": "Banner image (16:9)",
       "info": "Displays above the product. Use a 1600×900px image for best results."
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_2",
+      "label": "Banner image 2 (16:9)",
+      "info": "Displays below the first banner. Use a 1600×900px image for best results."
     }
   ],
   "presets": [{ "name": "Product Page" }]
