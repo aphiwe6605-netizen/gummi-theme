@@ -19,6 +19,16 @@
       "product-page": {
         "type": "product-page",
         "blocks": {
+          "review_4yeChD": {
+            "type": "review",
+            "settings": {
+              "profile_image": "shopify://shop_images/hf_20260708_190554_93bc4160-8259-43dc-8118-aebf194db671.png",
+              "customer_name": "A. Smith",
+              "review_text": "Been taking these for a couple of weeks and they have really helped me to fall asleep quicker and stay asleep! On average I’ve been sleeping an extra 30 mins to an hour each night. I’ve now got a subscription as I am really impressed!",
+              "star_rating": 5,
+              "show_verified": true
+            }
+          },
           "review_MWkPfg": {
             "type": "review",
             "settings": {
@@ -31,6 +41,7 @@
           }
         },
         "block_order": [
+          "review_4yeChD",
           "review_MWkPfg"
         ],
         "settings": {
