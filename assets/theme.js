@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Once-off purchase — normal cart flow
       var variantId = atcBtn.dataset.variantId;
-      var qty = qtyInput ? parseInt(qtyInput.value) ;
+      var qty = qtyInput ? parseInt(qtyInput.value) : 1;
       if (!variantId) return;
       atcBtn.textContent = 'Adding...';
       atcBtn.disabled = true;
