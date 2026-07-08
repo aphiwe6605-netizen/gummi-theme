@@ -1,15 +1,23 @@
 {%- if section.settings.banner_image -%}
-<div style="width:100%;overflow:hidden;margin-bottom:0;border-radius:16px 16px 0 0;"><div style="position:relative;width:100%;padding-top:56.25%;"><img src="{{ section.settings.banner_image | image_url: width: 1600 }}" alt="{{ section.settings.banner_image.alt | default: 'Gummi banner' }}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div></div>
+<div style="width:100%;max-width:100%;overflow:hidden;margin-bottom:0;border-radius:16px 16px 0 0;">
+  <div style="position:relative;width:100%;padding-top:56.25%;">
+    <img src="{{ section.settings.banner_image | image_url: width: 1600 }}" alt="{{ section.settings.banner_image.alt | default: 'Gummi banner' }}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+  </div>
+</div>
 {%- endif -%}
 {%- if section.settings.banner_image_2 -%}
-<div style="width:100%;overflow:hidden;margin-bottom:0;border-radius:0 0 16px 16px;"><div style="position:relative;width:100%;padding-top:56.25%;"><img src="{{ section.settings.banner_image_2 | image_url: width: 1600 }}" alt="{{ section.settings.banner_image_2.alt | default: 'Gummi banner 2' }}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div></div>
+<div style="width:100%;max-width:100%;overflow:hidden;margin-bottom:0;border-radius:0 0 16px 16px;">
+  <div style="position:relative;width:100%;padding-top:56.25%;">
+    <img src="{{ section.settings.banner_image_2 | image_url: width: 1600 }}" alt="{{ section.settings.banner_image_2.alt | default: 'Gummi banner 2' }}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+  </div>
+</div>
 {%- endif -%}
 {%- if section.blocks.size > 0 -%}
-<div style="overflow:hidden;margin:40px 0;padding:32px 0;background:#fff;">
+<div id="reviews-wrapper" style="overflow:hidden;margin-bottom:40px;padding:32px 0;background:#ffffff;">
   <div id="reviews-track" style="display:flex;gap:20px;width:max-content;">
     {%- for block in section.blocks -%}{%- if block.type == 'review' -%}
     <div style="min-width:280px;max-width:280px;background:#f5f0fb;border-radius:16px;padding:24px 20px;flex-shrink:0;" {{ block.shopify_attributes }}>
-      <div style="color:#f59e0b;font-size:15px;margin-bottom:10px;">{%- assign s=block.settings.star_rating -%}{%- for i in (1..s) -%}★{%- endfor -%}{%- assign e=5|minus:s -%}{%- if e>0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}</div>
+      <div style="color:#f59e0b;font-size:15px;letter-spacing:1px;margin-bottom:10px;">{%- assign s=block.settings.star_rating -%}{%- for i in (1..s) -%}★{%- endfor -%}{%- assign e=5|minus:s -%}{%- if e>0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}</div>
       <p style="font-size:14px;color:#555;line-height:1.65;margin:0 0 16px;">"{{ block.settings.review_text }}"</p>
       <div style="display:flex;align-items:center;gap:10px;">
         {%- if block.settings.profile_image -%}<img src="{{ block.settings.profile_image | image_url: width: 48 }}" width="48" height="48" style="border-radius:50%;object-fit:cover;flex-shrink:0;" alt="{{ block.settings.customer_name }}">{%- else -%}<div style="width:44px;height:44px;border-radius:50%;background:#3b1f6b;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:17px;flex-shrink:0;">{{ block.settings.customer_name | slice: 0, 1 | upcase }}</div>{%- endif -%}
@@ -19,7 +27,7 @@
     {%- endif -%}{%- endfor -%}
     {%- for block in section.blocks -%}{%- if block.type == 'review' -%}
     <div style="min-width:280px;max-width:280px;background:#f5f0fb;border-radius:16px;padding:24px 20px;flex-shrink:0;" aria-hidden="true">
-      <div style="color:#f59e0b;font-size:15px;margin-bottom:10px;">{%- assign s=block.settings.star_rating -%}{%- for i in (1..s) -%}★{%- endfor -%}{%- assign e=5|minus:s -%}{%- if e>0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}</div>
+      <div style="color:#f59e0b;font-size:15px;letter-spacing:1px;margin-bottom:10px;">{%- assign s=block.settings.star_rating -%}{%- for i in (1..s) -%}★{%- endfor -%}{%- assign e=5|minus:s -%}{%- if e>0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}</div>
       <p style="font-size:14px;color:#555;line-height:1.65;margin:0 0 16px;">"{{ block.settings.review_text }}"</p>
       <div style="display:flex;align-items:center;gap:10px;">
         {%- if block.settings.profile_image -%}<img src="{{ block.settings.profile_image | image_url: width: 48 }}" width="48" height="48" style="border-radius:50%;object-fit:cover;flex-shrink:0;" alt="{{ block.settings.customer_name }}">{%- else -%}<div style="width:44px;height:44px;border-radius:50%;background:#3b1f6b;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:17px;flex-shrink:0;">{{ block.settings.customer_name | slice: 0, 1 | upcase }}</div>{%- endif -%}
@@ -29,7 +37,18 @@
     {%- endif -%}{%- endfor -%}
   </div>
 </div>
-<style>@keyframes reviews-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}#reviews-track{animation:reviews-scroll 35s linear infinite}#reviews-track:hover{animation-play-state:paused}</style>
+<style>
+@keyframes reviews-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+#reviews-track{animation:reviews-scroll 35s linear infinite}
+#reviews-track:hover{animation-play-state:paused}
+@media(max-width:767px){
+  #reviews-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-left:20px;padding-right:20px;scrollbar-width:none;}
+  #reviews-wrapper::-webkit-scrollbar{display:none}
+  #reviews-track{animation:none!important;width:auto;transform:none!important}
+  #reviews-track>[aria-hidden="true"]{display:none}
+  #reviews-track>div{scroll-snap-align:start;min-width:260px}
+}
+</style>
 {%- endif -%}
 <section class="product-page" style="padding-bottom:0;">
   <div class="product-page__grid">
