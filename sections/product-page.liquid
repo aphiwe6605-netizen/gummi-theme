@@ -41,12 +41,25 @@
 @keyframes reviews-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 #reviews-track{animation:reviews-scroll 35s linear infinite}
 #reviews-track:hover{animation-play-state:paused}
-@media(max-width:767px){
-  #reviews-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-left:20px;padding-right:20px;scrollbar-width:none;}
-  #reviews-wrapper::-webkit-scrollbar{display:none}
-  #reviews-track{animation:none!important;width:auto;transform:none!important}
-  #reviews-track>[aria-hidden="true"]{display:none}
-  #reviews-track>div{scroll-snap-align:start;min-width:260px}
+@media (max-width: 767px) {
+  #reviews-wrapper {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-left: 20px;
+    padding-right: 20px;
+    scrollbar-width: none;
+  }
+  #reviews-wrapper::-webkit-scrollbar { display: none; }
+  #reviews-track {
+    animation: none !important;
+    width: auto !important;
+    transform: none !important;
+    flex-wrap: nowrap;
+  }
+  #reviews-track > [aria-hidden="true"] { display: none !important; }
+  #reviews-track > div { scroll-snap-align: start; min-width: 75vw !important; max-width: 75vw !important; }
 }
 </style>
 {%- endif -%}
