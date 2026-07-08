@@ -18,7 +18,9 @@
     "sections": {
       "product-page": {
         "type": "product-page",
-        "settings": {}
+        "settings": {
+          "banner_image": "shopify://shop_images/hf_20260708_172652_24743332-64bd-442b-8ac3-de265af31dd4.png"
+        }
       },
       "ingredients": {
         "type": "ingredients",
