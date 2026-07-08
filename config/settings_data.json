@@ -19,6 +19,16 @@
       "product-page": {
         "type": "product-page",
         "blocks": {
+          "review_U63crM": {
+            "type": "review",
+            "settings": {
+              "profile_image": "shopify://shop_images/hf_20260708_191847_a62683b1-7617-40ee-a7c2-c3efa2d4a379.png",
+              "customer_name": "N. Radebe",
+              "review_text": "Two weeks in and I fall asleep quite quickly which is much better than being awake for a couple of hours. My sleeping time hasn't been extended but I feel the quality of sleep is better.",
+              "star_rating": 5,
+              "show_verified": true
+            }
+          },
           "review_4yeChD": {
             "type": "review",
             "settings": {
@@ -41,6 +51,7 @@
           }
         },
         "block_order": [
+          "review_U63crM",
           "review_4yeChD",
           "review_MWkPfg"
         ],
