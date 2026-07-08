@@ -19,6 +19,16 @@
       "product-page": {
         "type": "product-page",
         "blocks": {
+          "review_kimwki": {
+            "type": "review",
+            "settings": {
+              "profile_image": "shopify://shop_images/hf_20260708_190720_d26fa23b-9de2-4e3e-a029-6bcb76b67bf9.png",
+              "customer_name": "M. Zwane",
+              "review_text": "Great product\nHelp to settle at night for a good sleep\nGood flavour\nReliable delivery / subscription\nGood price\nWould recommend the product.",
+              "star_rating": 4,
+              "show_verified": true
+            }
+          },
           "review_U63crM": {
             "type": "review",
             "settings": {
@@ -51,6 +61,7 @@
           }
         },
         "block_order": [
+          "review_kimwki",
           "review_U63crM",
           "review_4yeChD",
           "review_MWkPfg"
