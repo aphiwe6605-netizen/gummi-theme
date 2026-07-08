@@ -81,14 +81,14 @@
         <div class="product-info__price" style="margin-bottom:24px;">
           {%- if product.compare_at_price > product.price -%}
             <span class="price" id="product-price">{{ product.price | money }}</span>
-            <s style="font-size:20px;color:var(--text-light);margin-left:12px;">{{ product.compare_at_price | money }}</s>
-            <span style="background:#E8F5E9;color:#2E7D32;padding:4px 12px;border-radius:100px;font-size:13px;font-weight:700;margin-left:8px;">
+            <s style="font-size:20px;color:var(--text-light);margin-left:12px;" id="compare-at-price">{{ product.compare_at_price | money }}</s>
+            <span id="savings-badge" style="background:#E8F5E9;color:#2E7D32;padding:4px 12px;border-radius:100px;font-size:13px;font-weight:700;margin-left:8px;">
               Save {{ product.compare_at_price | minus: product.price | money }}
             </span>
           {%- else -%}
             <span class="price" id="product-price">{{ product.price | money }}</span>
           {%- endif -%}
-          <p class="price-note">60 gummies · 30-day supply  · {{ product.variants.first.sku | default: 'GUM-001' }}</p>
+          <p class="price-note">60 gummies · 30-day supply · {{ product.variants.first.sku | default: 'GUM-001' }}</p>
         </div>
 
         <div class="quantity-selector">

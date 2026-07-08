@@ -103,6 +103,19 @@ document.addEventListener('DOMContentLoaded', function () {
           priceEl.textContent = isSubscribe
             ? 'R ' + discounted
             : 'R ' + basePrice.toFixed(2);
+
+          // Update savings badge to reflect actual saving vs compare-at price
+          var savingsBadge = document.getElementById('savings-badge');
+          if (savingsBadge) {
+            var compareAtEl = document.getElementById('compare-at-price');
+            if (compareAtEl) {
+              var compareAtRaw = compareAtEl.textContent.replace(/[^\d.]/g, '');
+              var compareAt = parseFloat(compareAtRaw);
+              var currentPrice = isSubscribe ? parseFloat(discounted) : basePrice;
+              var saving = (compareAt - currentPrice).toFixed(2);
+              savingsBadge.textContent = 'Save R ' + saving;
+            }
+          }
         }
 
         // Update ATC button label
