@@ -19,6 +19,16 @@
       "product-page": {
         "type": "product-page",
         "blocks": {
+          "review_Df9WMC": {
+            "type": "review",
+            "settings": {
+              "profile_image": "shopify://shop_images/hf_20260708_190836_5165fd02-090d-4779-9a5c-91b9001a2d6f.png",
+              "customer_name": "J. Bester",
+              "review_text": "I have tried different ones which are good. But these are the best. I used these first. Ran out. Then tried others on Takealot. When I went back to these I have noticed quick drop off and sustained deep sleep.",
+              "star_rating": 5,
+              "show_verified": true
+            }
+          },
           "review_kimwki": {
             "type": "review",
             "settings": {
@@ -61,6 +71,7 @@
           }
         },
         "block_order": [
+          "review_Df9WMC",
           "review_kimwki",
           "review_U63crM",
           "review_4yeChD",
