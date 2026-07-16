@@ -1,0 +1,192 @@
+<section class="guarantee-section">
+  <div class="container">
+    <div class="guarantee-card">
+      <div class="guarantee-badge">
+        <div class="guarantee-badge-ring">
+          <div class="guarantee-badge-inner">
+            <div class="guarantee-badge-num">30</div>
+            <div class="guarantee-badge-day">DAYS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guarantee-body">
+        <span class="section-label" style="justify-content:flex-start;text-align:left;">Our Promise</span>
+        <h2 class="guarantee-title">Sleep better. Or it's free.</h2>
+        <p class="guarantee-text">Take two Gummi gummies every night for 30 days. If you don't wake up feeling more rested, fall asleep faster, or sleep through without interruption — we'll refund every cent. No questions, no returns, no expiry date on the guarantee.</p>
+        <p class="guarantee-text">We offer this because we're confident the formula works. And because we know you've probably been let down by something that didn't deliver before. We're not interested in one-time customers — we want you back every month because it worked.</p>
+
+        <div class="guarantee-pillars">
+          <div class="guarantee-pillar">
+            <div class="guarantee-pillar-icon">✓</div>
+            <div class="guarantee-pillar-text">
+              <strong>30 nights to decide</strong>
+              <span>Full refund if it doesn't work</span>
+            </div>
+          </div>
+          <div class="guarantee-pillar">
+            <div class="guarantee-pillar-icon">✓</div>
+            <div class="guarantee-pillar-text">
+              <strong>No return required</strong>
+              <span>Keep the product either way</span>
+            </div>
+          </div>
+          <div class="guarantee-pillar">
+            <div class="guarantee-pillar-icon">✓</div>
+            <div class="guarantee-pillar-text">
+              <strong>Zero fine print</strong>
+              <span>One email is all it takes</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="/products/gummi-sleep-gummies" class="btn btn-primary" style="display:inline-block;margin-top:32px;">Try Risk-Free — R{{ section.settings.price | default: '499' }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.guarantee-section {
+  padding: 80px 24px;
+  background: var(--white);
+}
+
+.guarantee-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--purple-pale) 0%, #f3e8ff 50%, var(--cream) 100%);
+  border-radius: 28px;
+  padding: 56px 64px;
+  display: flex;
+  gap: 56px;
+  align-items: center;
+  border: 1px solid rgba(167,139,204,0.2);
+}
+
+.guarantee-badge {
+  flex-shrink: 0;
+}
+
+.guarantee-badge-ring {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid var(--purple-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.guarantee-badge-ring::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--purple-light);
+}
+
+.guarantee-badge-inner {
+  text-align: center;
+}
+
+.guarantee-badge-num {
+  font-family: var(--font-serif);
+  font-size: 52px;
+  color: var(--purple-deep);
+  line-height: 1;
+}
+
+.guarantee-badge-day {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--purple-mid);
+  margin-top: 2px;
+}
+
+.guarantee-title {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  color: var(--text-dark);
+  margin: 8px 0 20px;
+  line-height: 1.15;
+}
+
+.guarantee-text {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.guarantee-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.guarantee-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.guarantee-pillar-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--purple-deep);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.guarantee-pillar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.guarantee-pillar-text strong {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.guarantee-pillar-text span {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+@media(max-width: 767px) {
+  .guarantee-card {
+    flex-direction: column;
+    padding: 36px 24px;
+    gap: 32px;
+    text-align: center;
+    align-items: center;
+  }
+  .guarantee-title { font-size: 28px; }
+  .guarantee-pillars { align-items: flex-start; text-align: left; }
+  .guarantee-badge-ring { width: 110px; height: 110px; }
+  .guarantee-badge-num { font-size: 40px; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Guarantee",
+  "settings": [
+    { "type": "text", "id": "price", "label": "Price shown on CTA button", "default": "499" }
+  ],
+  "presets": [{ "name": "Guarantee" }]
+}
+{% endschema %}
