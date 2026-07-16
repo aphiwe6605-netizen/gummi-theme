@@ -1,0 +1,169 @@
+<section class="sleep-timeline-section">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Your Journey</span>
+      <h2 class="section-title">Your first <em>30 nights.</em></h2>
+      <p class="section-sub centered">Two gummies 30 minutes before bed. Here's how the shift unfolds night by night.</p>
+    </div>
+
+    <div class="sleep-timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Night 1</div>
+          <h3 class="timeline-title">The ritual begins</h3>
+          <p class="timeline-body">You take two gummies 30 minutes before bed. The wild berry flavour is a surprise — enothing like the chalky pills you've tried before. The lemon balm and L-theanine begin to quiet the noise. You feel calmer than usual as your head hits the pillow.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Week 1</div>
+          <h3 class="timeline-title">The first real shift</h3>
+          <p class="timeline-body">The racing thoughts that used to keep you up start to fade faster. Most people notice they're falling asleep earlier than expected — not because theyre sedated, but because their nervous system is genuinely winding down. The morning alarm doesn't feel like an attack anymore.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Week 2</div>
+          <h3 class="timeline-title">Sleep becomes reliable</h3>
+          <p class="timeline-body">Your sleep rhythm is resetting. Waking up at 3am starts happening less. The deep sleep your body has been missing — the kind that restores your mood, your skin, and your focus — starts compounding. You start noticing it in the mirror first: something in your face looks rested.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Week 3</div>
+          <h3 class="timeline-title">Confidence becomes the baseline</h3>
+          <p class="timeline-body">Good sleep stops being something you think about — it's just what happens. The mid-afternoon energy crashes fade. You stop reaching for the third coffee. People start asking you what's changed. You have more patience for the things that used to drain you.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot timeline-dot--last"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Week 4 &amp; Beyond</div>
+          <h3 class="timeline-title">The morning you've been waiting for</h3>
+          <p class="timeline-body">You wake up before your alarm. Not groggy. Not reaching for your phone. You feel clear — the way you're supposed to feel every day. This is what well-rested actually means. Your body found its rhythm. Gummi helped it get there. Now daily use keeps you there.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.sleep-timeline-section {
+  padding: 80px 24px;
+  background: var(--white);
+}
+
+.sleep-timeline {
+  max-width: 680px;
+  margin: 56px auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 28px;
+  position: relative;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 24px;
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--purple-deep);
+  border: 3px solid var(--purple-pale);
+  flex-shrink: 0;
+  margin-top: 4px;
+  box-shadow: 0 0 0 3px var(--purple-pale);
+}
+
+.timeline-dot--last {
+  box-shadow: 0 0 0 4px rgba(59,31,107,0.15);
+}
+
+.timeline-line {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--purple-light), var(--purple-pale));
+  margin: 8px 0;
+  min-height: 40px;
+}
+
+.timeline-content {
+  padding-bottom: 48px;
+  flex: 1;
+}
+
+.timeline-item:last-child .timeline-content {
+  padding-bottom: 0;
+}
+
+.timeline-phase {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--purple-mid);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.timeline-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.timeline-body {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+
+@media(max-width: 767px) {
+  .timeline-title { font-size: 19px; }
+  .timeline-body { font-size: 14px; }
+  .sleep-timeline { margin-top: 40px; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Sleep Timeline",
+  "settings": [],
+  "presets": [{ "name": "Sleep Timeline" }]
+}
+{% endschema %}
