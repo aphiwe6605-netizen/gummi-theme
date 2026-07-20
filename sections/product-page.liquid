@@ -1,52 +1,105 @@
 {%- if section.settings.banner_image -%}
 <div style="width:100%;max-width:100%;overflow:hidden;margin-bottom:0;border-radius:16px 16px 0 0;">
   <div style="position:relative;width:100%;padding-top:56.25%;">
-    <img src="{{ section.settings.banner_image | image_url: width: 1600 }}" alt="{{ section.settings.banner_image.alt | default: 'Gummi banner' }}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+    <img
+      src="{{ section.settings.banner_image | image_url: width: 1600 }}"
+      alt="{{ section.settings.banner_image.alt | default: 'Gummi banner' }}"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"
+      loading="lazy"
+    >
   </div>
 </div>
 {%- endif -%}
+
 {%- if section.settings.banner_image_2 -%}
 <div style="width:100%;max-width:100%;overflow:hidden;margin-bottom:40px;border-radius:0 0 16px 16px;">
   <div style="position:relative;width:100%;padding-top:56.25%;">
-    <img src="{{ section.settings.banner_image_2 | image_url: width: 1600 }}" alt="{{ section.settings.banner_image_2.alt | default: 'Gummi banner 2' }}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+    <img
+      src="{{ section.settings.banner_image_2 | image_url: width: 1600 }}"
+      alt="{{ section.settings.banner_image_2.alt | default: 'Gummi banner 2' }}"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"
+      loading="lazy"
+    >
   </div>
 </div>
 {%- endif -%}
+
 {%- if section.blocks.size > 0 -%}
 <div id="reviews-wrapper" style="overflow:hidden;margin-bottom:40px;padding:32px 0;background:#ffffff;">
   <div id="reviews-track" style="display:flex;gap:20px;width:max-content;">
-    {%- for block in section.blocks -%}{%- if block.type == 'review' -%}
+    {%- for block in section.blocks -%}
+    {%- if block.type == 'review' -%}
     <div style="min-width:280px;max-width:280px;background:#f5f0fb;border-radius:16px;padding:24px 20px;flex-shrink:0;" {{ block.shopify_attributes }}>
-      <div style="color:#f59e0b;font-size:15px;letter-spacing:1px;margin-bottom:10px;">{%- assign s=block.settings.star_rating -%}{%- for i in (1..s) -%}★{%- endfor -%}{%- assign e=5|minus:s -%}{%- if e>0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}</div>
+      <div style="color:#f59e0b;font-size:15px;letter-spacing:1px;margin-bottom:10px;">
+        {%- assign s = block.settings.star_rating -%}
+        {%- for i in (1..s) -%}★{%- endfor -%}
+        {%- assign e = 5 | minus: s -%}{%- if e > 0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}
+      </div>
       <p style="font-size:14px;color:#555;line-height:1.65;margin:0 0 16px;">"{{ block.settings.review_text }}"</p>
       <div style="display:flex;align-items:center;gap:10px;">
-        {%- if block.settings.profile_image -%}<img src="{{ block.settings.profile_image | image_url: width: 48 }}" width="48" height="48" style="border-radius:50%;object-fit:cover;flex-shrink:0;" alt="{{ block.settings.customer_name }}">{%- else -%}<div style="width:44px;height:44px;border-radius:50%;background:#3b1f6b;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:17px;flex-shrink:0;">{{ block.settings.customer_name | slice: 0, 1 | upcase }}</div>{%- endif -%}
-        <div><div style="font-weight:700;font-size:13px;color:#1a1a1a;">{{ block.settings.customer_name }}</div>{%- if block.settings.show_verified -%}<div style="font-size:11px;color:#2E7D32;font-weight:600;margin-top:2px;">✓ Verified Customer</div>{%- endif -%}</div>
+        {%- if block.settings.profile_image -%}
+          <img src="{{ block.settings.profile_image | image_url: width: 48 }}" width="48" height="48" style="border-radius:50%;object-fit:cover;flex-shrink:0;" alt="{{ block.settings.customer_name }}">
+        {%- else -%}
+          <div style="width:44px;height:44px;border-radius:50%;background:#3b1f6b;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:17px;flex-shrink:0;">{{ block.settings.customer_name | slice: 0, 1 | upcase }}</div>
+        {%- endif -%}
+        <div>
+          <div style="font-weight:700;font-size:13px;color:#1a1a1a;">{{ block.settings.customer_name }}</div>
+          {%- if block.settings.show_verified -%}
+          <div style="font-size:11px;color:#2E7D32;font-weight:600;margin-top:2px;">✓ Verified Customer</div>
+          {%- endif -%}
+        </div>
       </div>
     </div>
-    {%- endif -%}{%- endfor -%}
-    {%- for block in section.blocks -%}{%- if block.type == 'review' -%}
+    {%- endif -%}
+    {%- endfor -%}
+    {%- for block in section.blocks -%}
+    {%- if block.type == 'review' -%}
     <div style="min-width:280px;max-width:280px;background:#f5f0fb;border-radius:16px;padding:24px 20px;flex-shrink:0;" aria-hidden="true">
-      <div style="color:#f59e0b;font-size:15px;letter-spacing:1px;margin-bottom:10px;">{%- assign s=block.settings.star_rating -%}{%- for i in (1..s) -%}★{%- endfor -%}{%- assign e=5|minus:s -%}{%- if e>0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}</div>
+      <div style="color:#f59e0b;font-size:15px;letter-spacing:1px;margin-bottom:10px;">
+        {%- assign s = block.settings.star_rating -%}
+        {%- for i in (1..s) -%}★{%- endfor -%}
+        {%- assign e = 5 | minus: s -%}{%- if e > 0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}
+      </div>
       <p style="font-size:14px;color:#555;line-height:1.65;margin:0 0 16px;">"{{ block.settings.review_text }}"</p>
       <div style="display:flex;align-items:center;gap:10px;">
-        {%- if block.settings.profile_image -%}<img src="{{ block.settings.profile_image | image_url: width: 48 }}" width="48" height="48" style="border-radius:50%;object-fit:cover;flex-shrink:0;" alt="{{ block.settings.customer_name }}">{%- else -%}<div style="width:44px;height:44px;border-radius:50%;background:#3b1f6b;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:17px;flex-shrink:0;">{{ block.settings.customer_name | slice: 0, 1 | upcase }}</div>{%- endif -%}
-        <div><div style="font-weight:700;font-size:13px;color:#1a1a1a;">{{ block.settings.customer_name }}</div>{%- if block.settings.show_verified -%}<div style="font-size:11px;color:#2E7D32;font-weight:600;margin-top:2px;">✓ Verified Customer</div>{%- endif -%}</div>
+        {%- if block.settings.profile_image -%}
+          <img src="{{ block.settings.profile_image | image_url: width: 48 }}" width="48" height="48" style="border-radius:50%;object-fit:cover;flex-shrink:0;" alt="{{ block.settings.customer_name }}">
+        {%- else -%}
+          <div style="width:44px;height:44px;border-radius:50%;background:#3b1f6b;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:17px;flex-shrink:0;">{{ block.settings.customer_name | slice: 0, 1 | upcase }}</div>
+        {%- endif -%}
+        <div>
+          <div style="font-weight:700;font-size:13px;color:#1a1a1a;">{{ block.settings.customer_name }}</div>
+          {%- if block.settings.show_verified -%}
+          <div style="font-size:11px;color:#2E7D32;font-weight:600;margin-top:2px;">✓ Verified Customer</div>
+          {%- endif -%}
+        </div>
       </div>
     </div>
-    {%- endif -%}{%- endfor -%}
+    {%- endif -%}
+    {%- endfor -%}
   </div>
 </div>
 <style>
-@keyframes reviews-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-#reviews-track{animation:reviews-scroll 35s linear infinite}
-#reviews-track:hover{animation-play-state:paused}
-@media(max-width:767px){
-  #reviews-wrapper{overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-left:20px;padding-right:20px;}
-  #reviews-wrapper::-webkit-scrollbar{display:none}
-  #reviews-track{animation:none!important;width:max-content!important;transform:none!important}
-  #reviews-track>div{min-width:75vw!important;max-width:75vw!important}
-  .product-info{padding-top:16px!important}
+@keyframes reviews-scroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+#reviews-track { animation: reviews-scroll 35s linear infinite; }
+#reviews-track:hover { animation-play-state: paused; }
+@media (max-width: 767px) {
+  #reviews-wrapper {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #reviews-wrapper::-webkit-scrollbar { display: none; }
+  #reviews-track {
+    animation: none !important;
+    width: max-content !important;
+    transform: none !important;
+  }
+  #reviews-track > div { min-width: 75vw !important; max-width: 75vw !important; }
+  .product-info { padding-top: 16px !important; }
 }
 </style>
 <script>
@@ -68,44 +121,189 @@
 })();
 </script>
 {%- endif -%}
+
 <section class="product-page" style="padding-bottom:0;">
   <div class="product-page__grid">
+
+    <!-- GALLERY + PURCHASE ACTIONS (left column) -->
     <div class="product-gallery">
-      <div class="product-gallery__main">
-        {%- if product.featured_image -%}<img id="main-product-image" src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.featured_image.alt | default: product.title }}" width="900" height="900" loading="eager">
-        {%- else -%}<div style="font-size:100px;text-align:center;">💜</div>{%- endif -%}
+      <div class="product-gallery__main" id="pp-gallery-main">
+        {%- if product.featured_image -%}
+          <img
+            id="gallery-main-img"
+            src="{{ product.featured_image | image_url: width: 900 }}"
+            alt="{{ product.featured_image.alt | default: product.title }}"
+            width="900" height="900"
+            loading="eager"
+          >
+        {%- else -%}
+          <div style="font-size:100px;text-align:center;">💜</div>
+        {%- endif -%}
+        {%- if product.images.size > 1 -%}
+          <button class="gallery-arrow gallery-arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button class="gallery-arrow gallery-arrow--next" aria-label="Next image">&#8250;</button>
+        {%- endif -%}
       </div>
+
       {%- if product.images.size > 1 -%}
-      <div class="product-gallery__thumbs">
-        {%- for image in product.images limit: 5 -%}<div class="product-gallery__thumb {% if forloop.first %}active{% endif %}"><img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt | default: product.title }}" width="72" height="72" loading="lazy"></div>{%- endfor -%}
-      </div>{%- endif -%}
-      <div class="purchase-toggle" role="group" aria-label="Purchase type" style="margin-top:24px;">
-        <button type="button" class="purchase-toggle__btn active" data-type="one-time"><span class="toggle-label">One-time Purchase</span><span class="toggle-sub">{{ product.price | money }}</span></button>
-        <button type="button" class="purchase-toggle__btn" data-type="subscribe"><span class="toggle-label">Subscribe &amp; Save <span class="save-badge">10% OFF</span></span><span class="toggle-sub">From {{ product.price | times: 0.9 | money }}/month</span></button>
+      <div class="product-gallery__thumbs" id="pp-gallery-thumbs">
+        {%- for image in product.images limit: 5 -%}
+        <div class="product-gallery__thumb {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+          <img
+            src="{{ image | image_url: width: 200 }}"
+            alt="{{ image.alt | default: product.title }}"
+            width="72" height="72"
+            loading="lazy"
+          >
+        </div>
+        {%- endfor -%}
       </div>
+      {%- endif -%}
+
+      <script>
+      (function(){
+        var images = [{% for image in product.images limit: 5 %}"{{ image | image_url: width: 900 }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+        if(images.length < 2) return;
+        var current = 0;
+        var mainImg = document.getElementById('gallery-main-img');
+        var thumbs = document.querySelectorAll('#pp-gallery-thumbs .product-gallery__thumb');
+        function goTo(idx){
+          current = (idx + images.length) % images.length;
+          mainImg.src = images[current];
+          thumbs.forEach(function(t,i){ t.classList.toggle('active', i === current); });
+        }
+        document.querySelector('#pp-gallery-main .gallery-arrow--prev').addEventListener('click', function(){ goTo(current - 1); });
+        document.querySelector('#pp-gallery-main .gallery-arrow--next').addEventListener('click', function(){ goTo(current + 1); });
+        thumbs.forEach(function(t,i){ t.addEventListener('click', function(){ goTo(i); }); });
+      })();
+      </script>
+
+      <!-- Purchase Type Toggle -->
+      <div class="purchase-toggle" role="group" aria-label="Purchase type" style="margin-top:24px;">
+        <button type="button" class="purchase-toggle__btn active" data-type="one-time">
+          <span class="toggle-label">One-time Purchase</span>
+          <span class="toggle-sub">{{ product.price | money }}</span>
+        </button>
+        <button type="button" class="purchase-toggle__btn" data-type="subscribe">
+          <span class="toggle-label">Subscribe &amp; Save <span class="save-badge">10% OFF</span></span>
+          <span class="toggle-sub">From {{ product.price | times: 0.9 | money }}/month</span>
+        </button>
+      </div>
+
+      <!-- Subscription frequency -->
       <div class="subscribe-options" id="subscribe-options-pp">
         <label>Delivery frequency</label>
-        <select id="subscribe-freq-pp"><option value="1">Every month — {{ product.price | times: 0.9 | money }}</option><option value="2">Every 2 months — {{ product.price | times: 0.85 | money }}</option></select>
+        <select id="subscribe-freq-pp">
+          <option value="1">Every month — {{ product.price | times: 0.9 | money }}</option>
+          <option value="2">Every 2 months — {{ product.price | times: 0.85 | money }}</option>
+        </select>
         <div class="subscribe-perk">✅ Cancel or pause anytime · No lock-in</div>
       </div>
+
+      <!-- Price, Qty, ATC -->
       {%- form 'product', product, id: 'product-form' -%}
+
+        {%- unless product.has_only_default_variant -%}
+        <div style="margin-bottom:20px;">
+          {%- for option in product.options_with_values -%}
+          <label for="option-{{ forloop.index }}" style="font-weight:600;font-size:14px;color:var(--text-dark);display:block;margin-bottom:8px;">
+            {{ option.name }}
+          </label>
+          <select
+            id="option-{{ forloop.index }}"
+            name="options[{{ option.name }}]"
+            style="padding:10px 16px;border-radius:8px;border:1.5px solid var(--purple-light);font-family:var(--font-sans);font-size:15px;width:100%;margin-bottom:16px;"
+          >
+            {%- for value in option.values -%}
+            <option value="{{ value }}">{{ value }}</option>
+            {%- endfor -%}
+          </select>
+          {%- endfor -%}
+        </div>
+        {%- endunless -%}
+
         <input type="hidden" name="id" id="variant-id" value="{{ product.selected_or_first_available_variant.id }}">
+
         <div class="product-info__price" style="margin-bottom:24px;">
-          {%- if product.compare_at_price > product.price -%}<span class="price" id="product-price">{{ product.price | money }}</span><s style="font-size:20px;color:var(--text-light);margin-left:12px;" id="compare-at-price">{{ product.compare_at_price | money }}</s><span id="savings-badge" style="background:#E8F5E9;color:#2E7D32;padding:4px 12px;border-radius:100px;font-size:13px;font-weight:700;margin-left:8px;">Save {{ product.compare_at_price | minus: product.price | money }}</span>{%- else -%}<span class="price" id="product-price">{{ product.price | money }}</span>{%- endif -%}
+          {%- if product.compare_at_price > product.price -%}
+            <span class="price" id="product-price">{{ product.price | money }}</span>
+            <s style="font-size:20px;color:var(--text-light);margin-left:12px;" id="compare-at-price">{{ product.compare_at_price | money }}</s>
+            <span id="savings-badge" style="background:#E8F5E9;color:#2E7D32;padding:4px 12px;border-radius:100px;font-size:13px;font-weight:700;margin-left:8px;">
+              Save {{ product.compare_at_price | minus: product.price | money }}
+            </span>
+          {%- else -%}
+            <span class="price" id="product-price">{{ product.price | money }}</span>
+          {%- endif -%}
           <p class="price-note">60 gummies · 30-day supply · {{ product.variants.first.sku | default: 'GUM-001' }}</p>
         </div>
-        <div class="quantity-selector"><button type="button" class="qty-btn qty-minus" aria-label="Decrease">−</button><input class="qty-input" type="number" name="quantity" value="1" min="1" max="10" aria-label="Quantity"><button type="button" class="qty-btn qty-plus" aria-label="Increase">+</button></div>
-        <button type="submit" class="add-to-cart" data-variant-id="{{ product.selected_or_first_available_variant.id }}" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>{%- if product.selected_or_first_available_variant.available -%}Add to Cart →{%- else -%}Sold Out{%- endif -%}</button>
+
+        <div class="quantity-selector">
+          <button type="button" class="qty-btn qty-minus" aria-label="Decrease">−</button>
+          <input class="qty-input" type="number" name="quantity" value="1" min="1" max="10" aria-label="Quantity">
+          <button type="button" class="qty-btn qty-plus" aria-label="Increase">+</button>
+        </div>
+
+        <button
+          type="submit"
+          class="add-to-cart"
+          data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+          {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+        >
+          {%- if product.selected_or_first_available_variant.available -%}
+            Add to Cart →
+          {%- else -%}
+            Sold Out
+          {%- endif -%}
+        </button>
+
       {%- endform -%}
-      <div class="product-info__trust" style="margin-top:20px;"><span class="trust-badge">🔒 Secure Checkout</span><span class="trust-badge">🚚 Free delivery over R500</span><span class="trust-badge">🔄 Easy returns</span></div>
+
+      <div class="product-delivery-trust" style="margin-top:20px;">
+        <p style="font-size:13px;color:var(--text-light);font-weight:500;margin-bottom:12px;text-align:center;">24hr Processing &middot; Est. Delivery 2&ndash;4 Business Days</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;">
+          <span style="background:var(--white);border:1px solid rgba(167,139,204,0.25);border-radius:8px;padding:6px 14px;font-size:11px;font-weight:600;color:var(--text-mid);letter-spacing:0.04em;">The Courier Guy</span>
+          <span style="background:var(--white);border:1px solid rgba(167,139,204,0.25);border-radius:8px;padding:6px 14px;font-size:11px;font-weight:600;color:var(--text-mid);letter-spacing:0.04em;">PostNet</span>
+          <span style="background:var(--white);border:1px solid rgba(167,139,204,0.25);border-radius:8px;padding:6px 14px;font-size:11px;font-weight:600;color:var(--text-mid);letter-spacing:0.04em;">Dawn Wing</span>
+        </div>
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding-top:12px;border-top:1px solid rgba(167,139,204,0.15);">
+          <span style="font-size:11px;color:var(--text-light);font-weight:500;">Visa</span>
+          <span style="font-size:11px;color:var(--text-light);">&middot;</span>
+          <span style="font-size:11px;color:var(--text-light);font-weight:500;">Mastercard</span>
+          <span style="font-size:11px;color:var(--text-light);">&middot;</span>
+          <span style="font-size:11px;color:var(--text-light);font-weight:500;">PayFast</span>
+          <span style="font-size:11px;color:var(--text-light);">&middot;</span>
+          <span style="font-size:11px;color:var(--text-light);font-weight:500;">EFT</span>
+          <span style="font-size:11px;color:var(--text-light);">&middot;</span>
+          <span style="font-size:11px;color:var(--text-light);font-weight:500;">Apple Pay</span>
+        </div>
+        <div style="display:flex;gap:16px;justify-content:center;margin-top:14px;">
+          <span style="font-size:12px;color:var(--text-mid);font-weight:500;">&#x1F512; Secure Checkout</span>
+          <span style="font-size:12px;color:var(--text-mid);font-weight:500;">&#x1F504; 30-Day Guarantee</span>
+        </div>
+      </div>
     </div>
+
+    <!-- PRODUCT INFO (right column) -->
     <div class="product-info" style="padding-top:48px;">
       <div class="product-info__flavour-badge">🫐 Wild Berry Flavour</div>
+
       <h1 class="product-info__name">{{ product.title }}</h1>
       <p class="product-info__tagline">Melatonin + L-Theanine + Passion Flower</p>
-      <div class="product-info__stars">★★★★★ <span>4.9 · 100+ happy sleepers</span></div>
-      <div class="product-info__desc">{{ product.description }}</div>
-      <div class="ingredient-pills" style="margin-top:20px;"><span class="pill">🌙 Melatonin</span><span class="pill">🍃 L-Theanine</span><span class="pill">🌸 Passion Flower</span></div>
+
+      <div class="product-info__stars">
+        ★★★★★ <span>4.9 · 100+ happy sleepers</span>
+      </div>
+
+      <div class="product-info__desc">
+        {{ product.description }}
+      </div>
+
+      <div class="ingredient-pills" style="margin-top:20px;">
+        <span class="pill">🌙 Melatonin</span>
+        <span class="pill">🍃 L-Theanine</span>
+        <span class="pill">🌸 Passion Flower</span>
+      </div>
+
       <ul class="product-info__benefits">
         <li><span class="benefit-dot"></span> Fall asleep faster — no more ceiling staring</li>
         <li><span class="benefit-dot"></span> Stay asleep through the night</li>
@@ -113,20 +311,67 @@
         <li><span class="benefit-dot"></span> 60 delicious wild berry gummies per pouch</li>
         <li><span class="benefit-dot"></span> Vegan, all-natural, no dependency</li>
       </ul>
+
+      <!-- Supplement Facts -->
       <div style="margin-top:40px;padding:28px;background:var(--purple-pale);border-radius:16px;">
         <h3 style="font-family:var(--font-serif);font-size:20px;margin-bottom:16px;color:var(--text-dark);">Supplement Facts</h3>
         <table style="width:100%;font-size:14px;color:var(--text-mid);border-collapse:collapse;">
-          <tr style="border-bottom:1px solid rgba(107,63,160,.15);"><td style="padding:10px 0;font-weight:600;color:var(--text-dark);">Serving Size</td><td style="padding:10px 0;text-align:right;">2 Gummies</td></tr>
-          <tr style="border-bottom:1px solid rgba(107,63,160,.15);"><td style="padding:10px 0;font-weight:600;color:var(--text-dark);">Servings Per Container</td><td style="padding:10px 0;text-align:right;">30</td></tr>
-          <tr style="border-bottom:1px solid rgba(107,63,160,.15);"><td style="padding:10px 0;">Melatonin</td><td style="padding:10px 0;text-align:right;">5mg</td></tr>
-          <tr style="border-bottom:1px solid rgba(107,63,160,.15);"><td style="padding:10px 0;">L-Theanine</td><td style="padding:10px 0;text-align:right;">200mg</td></tr>
-          <tr><td style="padding:10px 0;">Passion Flower Extract</td><td style="padding:10px 0;text-align:right;">50mg</td></tr>
+          <tr style="border-bottom:1px solid rgba(107,63,160,.15);">
+            <td style="padding:10px 0;font-weight:600;color:var(--text-dark);">Serving Size</td>
+            <td style="padding:10px 0;text-align:right;">2 Gummies</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(107,63,160,.15);">
+            <td style="padding:10px 0;font-weight:600;color:var(--text-dark);">Servings Per Container</td>
+            <td style="padding:10px 0;text-align:right;">30</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(107,63,160,.15);">
+            <td style="padding:10px 0;">Melatonin</td>
+            <td style="padding:10px 0;text-align:right;">5mg</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(107,63,160,.15);">
+            <td style="padding:10px 0;">L-Theanine</td>
+            <td style="padding:10px 0;text-align:right;">200mg</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;">Passion Flower Extract</td>
+            <td style="padding:10px 0;text-align:right;">50mg</td>
+          </tr>
         </table>
         <p style="font-size:11px;color:var(--text-light);margin-top:12px;">*These statements have not been evaluated by SAHPRA. Not intended to diagnose, treat, cure, or prevent any disease.</p>
       </div>
+
     </div>
   </div>
+
+
 </section>
+
 {% schema %}
-{"name":"Product Page","settings":[{"type":"image_picker","id":"banner_image","label":"Banner image (16:9)","info":"1600x900px recommended."},{"type":"image_picker","id":"banner_image_2","label":"Banner image 2 (16:9)","info":"1600x900px recommended."}],"blocks":[{"type":"review","name":"Review","settings":[{"type":"image_picker","id":"profile_image","label":"Profile photo","info":"Optional - leave blank for initial avatar."},{"type":"text","id":"customer_name","label":"Customer name","default":"Happy Customer"},{"type":"textarea","id":"review_text","label":"Review text","default":"These gummies have completely changed my sleep!"},{"type":"range","id":"star_rating","min":1,"max":5,"step":1,"label":"Star rating","default":5},{"type":"checkbox","id":"show_verified","label":"Show verified customer badge","default":true}]}],"presets":[{"name":"Product Page","blocks":[{"type":"review","settings":{"customer_name":"Nandi T.","review_text":"I used to lie awake for an hour every night. After a week of Gummi I am out in under 20 minutes.","star_rating":5,"show_verified":true}},{"type":"review","settings":{"customer_name":"Sipho M.","review_text":"Finally sleeping through the night without waking up at 3am. Game changer.","star_rating":5,"show_verified":true}},{"type":"review","settings":{"customer_name":"Aisha K.","review_text":"The wild berry flavour is delicious and they actually work. Genuinely shocked.","star_rating":5,"show_verified":true}},{"type":"review","settings":{"customer_name":"Lerato D.","review_text":"No more racing thoughts at night. I wind down so much faster now. Worth every cent.","star_rating":5,"show_verified":true}},{"type":"review","settings":{"customer_name":"Thabo N.","review_text":"Waking up refreshed is a whole new feeling. Did not realise how bad my sleep was before.","star_rating":5,"show_verified":true}}]}]}
+{
+  "name": "Product Page",
+  "settings": [
+    {"type":"image_picker","id":"banner_image","label":"Banner image (16:9)","info":"Displays above the product. 1600x900px recommended."},
+    {"type":"image_picker","id":"banner_image_2","label":"Banner image 2 (16:9)","info":"Displays below the first banner. 1600x900px recommended."}
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {"type":"image_picker","id":"profile_image","label":"Profile photo","info":"Optional — leave blank to use initial avatar."},
+        {"type":"text","id":"customer_name","label":"Customer name","default":"Happy Customer"},
+        {"type":"textarea","id":"review_text","label":"Review text","default":"These gummies have completely changed my sleep!"},
+        {"type":"range","id":"star_rating","min":1,"max":5,"step":1,"label":"Star rating","default":5},
+        {"type":"checkbox","id":"show_verified","label":"Show verified customer badge","default":true}
+      ]
+    }
+  ],
+  "presets": [{"name":"Product Page","blocks":[
+    {"type":"review","settings":{"customer_name":"Nandi T.","review_text":"I used to lie awake for an hour every night. After a week of Gummi I'm out in under 20 minutes.","star_rating":5,"show_verified":true}},
+    {"type":"review","settings":{"customer_name":"Sipho M.","review_text":"Finally sleeping through the night without waking up at 3am. Game changer.","star_rating":5,"show_verified":true}},
+    {"type":"review","settings":{"customer_name":"Aisha K.","review_text":"The wild berry flavour is delicious and they actually work. I'm genuinely shocked.","star_rating":5,"show_verified":true}},
+    {"type":"review","settings":{"customer_name":"Lerato D.","review_text":"No more racing thoughts at night. I wind down so much faster now. Worth every cent.","star_rating":5,"show_verified":true}},
+    {"type":"review","settings":{"customer_name":"Thabo N.","review_text":"Waking up refreshed is a whole new feeling. Didn't realise how bad my sleep was before.","star_rating":5,"show_verified":true}}
+  ]}]
+}
 {% endschema %}
