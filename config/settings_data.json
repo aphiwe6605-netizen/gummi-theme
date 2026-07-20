@@ -117,6 +117,14 @@
       "ugc-video-wall": {
         "type": "ugc-video-wall",
         "blocks": {
+          "video_NQkRiC": {
+            "type": "video",
+            "settings": {
+              "video_file": "shopify://files/videos/0720 (1).mov",
+              "platform": "Instagram",
+              "caption": ""
+            }
+          },
           "video_J8MCwL": {
             "type": "video",
             "settings": {
@@ -128,6 +136,7 @@
           }
         },
         "block_order": [
+          "video_NQkRiC",
           "video_J8MCwL"
         ],
         "settings": {
