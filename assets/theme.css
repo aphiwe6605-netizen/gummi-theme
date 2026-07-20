@@ -420,8 +420,7 @@ a    { text-decoration: none; }
 .social-btn:hover { background: var(--purple-mid); }
 .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.footer-col a { font-size: 14px; color: rgba(255,255,255,.55); transition: color .2s;
-}
+.footer-col a { font-size: 14px; color: rgba(255,255,255,.55); transition: color .2s; }
 .footer-col a:hover { color: var(--white); }
 .footer-newsletter { margin-bottom: 24px; }
 .footer-newsletter input {
@@ -565,10 +564,12 @@ a    { text-decoration: none; }
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  .site-nav { padding: 0 24px; }
+  .site-nav { padding: 0 16px; }
   .site-nav__links { display: none; }
+  .featured-product { padding: 60px 16px; overflow-x: hidden; }
   .featured-product__grid,
-  .product-page__grid { grid-template-columns: 1fr; gap: 48px; }
+  .product-page__grid { grid-template-columns: minmax(0, 1fr); gap: 48px; width: 100%; }
+  .product-gallery__thumbs { overflow-x: auto; }
   .ingredients-grid { grid-template-columns: 1fr; }
   .steps-grid { grid-template-columns: 1fr; gap: 32px; }
   .steps-grid::before { display: none; }
@@ -578,4 +579,6 @@ a    { text-decoration: none; }
   .problem-stat:last-child  { border-radius: 0 0 20px 20px; }
   .site-footer__grid { grid-template-columns: 1fr 1fr; }
   .stats-strip { gap: 24px; }
+  .section { padding: 60px 16px; }
+  .container { width: 100%; box-sizing: border-box; }
 }
