@@ -117,6 +117,15 @@
       "ugc-video-wall": {
         "type": "ugc-video-wall",
         "blocks": {
+          "video_b9QVqw": {
+            "type": "video",
+            "settings": {
+              "video_file": "shopify://files/videos/0720 (2).mov",
+              "thumbnail": "shopify://shop_images/Screenshot_2026-07-21_at_00.05.04.png",
+              "platform": "TikTok",
+              "caption": ""
+            }
+          },
           "video_NQkRiC": {
             "type": "video",
             "settings": {
@@ -137,6 +146,7 @@
           }
         },
         "block_order": [
+          "video_b9QVqw",
           "video_NQkRiC",
           "video_J8MCwL"
         ],
