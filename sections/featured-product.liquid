@@ -10,9 +10,10 @@
 
     <!-- LEFT: GALLERY + PURCHASE ACTIONS -->
     <div class="product-gallery">
-      <div class="product-gallery__main">
+      <div class="product-gallery__main" id="gallery-main">
         {%- if product.featured_image -%}
           <img
+            id="gallery-main-img"
             src="{{ product.featured_image | image_url: width: 800 }}"
             alt="{{ product.featured_image.alt | default: product.title }}"
             width="800" height="800"
@@ -21,12 +22,16 @@
         {%- else -%}
           <div style="font-size:80px;">💜</div>
         {%- endif -%}
+        {%- if product.images.size > 1 -%}
+          <button class="gallery-arrow gallery-arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button class="gallery-arrow gallery-arrow--next" aria-label="Next image">&#8250;</button>
+        {%- endif -%}
       </div>
 
       {%- if product.images.size > 1 -%}
-      <div class="product-gallery__thumbs">
+      <div class="product-gallery__thumbs" id="gallery-thumbs">
         {%- for image in product.images limit: 5 -%}
-        <div class="product-gallery__thumb {% if forloop.first %}active{% endif %}">
+        <div class="product-gallery__thumb {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
           <img
             src="{{ image | image_url: width: 150 }}"
             alt="{{ image.alt | default: product.title }}"
@@ -37,6 +42,24 @@
         {%- endfor -%}
       </div>
       {%- endif -%}
+
+      <script>
+      (function(){
+        var images = [{% for image in product.images limit: 5 %}"{{ image | image_url: width: 800 }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+        if(images.length < 2) return;
+        var current = 0;
+        var mainImg = document.getElementById('gallery-main-img');
+        var thumbs = document.querySelectorAll('#gallery-thumbs .product-gallery__thumb');
+        function goTo(idx){
+          current = (idx + images.length) % images.length;
+          mainImg.src = images[current];
+          thumbs.forEach(function(t,i){ t.classList.toggle('active', i === current); });
+        }
+        document.querySelector('.gallery-arrow--prev').addEventListener('click', function(){ goTo(current - 1); });
+        document.querySelector('.gallery-arrow--next').addEventListener('click', function(){ goTo(current + 1); });
+        thumbs.forEach(function(t,i){ t.addEventListener('click', function(){ goTo(i); }); });
+      })();
+      </script>
 
       <!-- Purchase Type Toggle -->
       <div class="purchase-toggle" role="group" aria-label="Purchase type" style="margin-top:24px;">
