@@ -121,7 +121,8 @@
             "type": "video",
             "settings": {
               "video_file": "shopify://files/videos/0720 (1).mov",
-              "platform": "Instagram",
+              "thumbnail": "shopify://shop_images/0720_1_1.png",
+              "platform": "TikTok",
               "caption": ""
             }
           },
