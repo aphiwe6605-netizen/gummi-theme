@@ -77,10 +77,7 @@
           "review_4yeChD",
           "review_MWkPfg"
         ],
-        "settings": {
-          "banner_image": "shopify://shop_images/idea-3.png",
-          "banner_image_2": "shopify://shop_images/idea-2.png"
-        }
+        "settings": {}
       },
       "ingredients": {
         "type": "ingredients",
@@ -115,6 +112,28 @@
         "type": "cta-banner",
         "settings": {
           "price": "450"
+        }
+      },
+      "ugc-video-wall": {
+        "type": "ugc-video-wall",
+        "settings": {
+          "label": "Trending on Social",
+          "heading": "Real customers, real results",
+          "subheading": "Going viral on TikTok & Instagram — watch why South Africans are switching to Gummi."
+        }
+      },
+      "sleep-timeline": {
+        "type": "sleep-timeline",
+        "settings": {}
+      },
+      "comparison": {
+        "type": "comparison",
+        "settings": {}
+      },
+      "guarantee": {
+        "type": "guarantee",
+        "settings": {
+          "price": "499"
         }
       }
     },
