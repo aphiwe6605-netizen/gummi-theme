@@ -116,6 +116,20 @@
       },
       "ugc-video-wall": {
         "type": "ugc-video-wall",
+        "blocks": {
+          "video_J8MCwL": {
+            "type": "video",
+            "settings": {
+              "video_file": "shopify://files/videos/0720.mov",
+              "thumbnail": "shopify://shop_images/0720_1.png",
+              "platform": "TikTok",
+              "caption": ""
+            }
+          }
+        },
+        "block_order": [
+          "video_J8MCwL"
+        ],
         "settings": {
           "label": "Trending on Social",
           "heading": "Real customers, real results",
