@@ -86,12 +86,25 @@
 .ugc-section .section-sub { color: rgba(255,255,255,0.6); }
 
 .ugc-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: row;
   gap: 16px;
   margin-top: 48px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+  cursor: grab;
 }
-.ugc-card { display: flex; flex-direction: column; gap: 10px; }
+.ugc-grid::-webkit-scrollbar { display: none; }
+.ugc-grid:active { cursor: grabbing; }
+.ugc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+  width: 220px;
+}
 .ugc-media {
   aspect-ratio: 9/16;
   border-radius: 14px;
@@ -153,11 +166,31 @@
 }
 
 @media(max-width: 767px) {
-  .ugc-grid { grid-template-columns: repeat(2, 1fr); }
+  .ugc-card { width: 160px; }
   .ugc-stats-row { gap: 32px; }
   .ugc-stat-num { font-size: 24px; }
 }
 </style>
+
+<script>
+(function(){
+  var el = document.querySelector('.ugc-grid');
+  if(!el) return;
+  var isDown = false, startX, scrollLeft;
+  el.addEventListener('mousedown', function(e){
+    isDown = true;
+    startX = e.pageX - el.offsetLeft;
+    scrollLeft = el.scrollLeft;
+  });
+  document.addEventListener('mouseup', function(){ isDown = false; });
+  el.addEventListener('mousemove', function(e){
+    if(!isDown) return;
+    e.preventDefault();
+    var x = e.pageX - el.offsetLeft;
+    el.scrollLeft = scrollLeft - (x - startX);
+  });
+})();
+</script>
 
 {% schema %}
 {
