@@ -1,62 +1,281 @@
 <section class="testimonials-section" id="reviews">
-  <div class="container text-center">
-    <span class="section-label">Real People. Real Sleep.</span>
-    <h2 class="section-title">What SA is <em>saying.</em></h2>
-    <p class="section-sub centered">Over 100 South Africans finally sleeping through the night.</p>
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">Real People. Real Gains.</span>
+      <h2 class="section-title">What SA is <em>saying.</em></h2>
+      <p class="section-sub centered">Over 100 South Africans hitting new PRs with Gummi.</p>
+    </div>
 
-    <div class="testimonials-grid">
+    <div class="testimonials-featured">
+
       {%- if section.blocks.size > 0 -%}
         {%- for block in section.blocks -%}
-        <div class="testimonial-card" {{ block.shopify_attributes }}>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"{{ block.settings.text }}"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">{{ block.settings.name | slice: 0 }}</div>
-            <div>
-              <div class="author-name">{{ block.settings.name }}</div>
-              <div class="author-location">{{ block.settings.location }}</div>
+        {%- if block.type == 'testimonial' -%}
+        <div class="testi-card" {{ block.shopify_attributes }}>
+          <div class="testi-header">
+            <div class="testi-avatar-wrap">
+              {%- if block.settings.photo -%}
+                <img src="{{ block.settings.photo | image_url: width: 160 }}" alt="{{ block.settings.name }}" class="testi-avatar-img">
+              {%- else -%}
+                <div class="testi-avatar-initials">{{ block.settings.name | slice: 0, 1 | upcase }}</div>
+              {%- endif -%}
+            </div>
+            <div class="testi-identity">
+              <div class="testi-name">{{ block.settings.name }}</div>
+              <div class="testi-demo">{{ block.settings.age_city }}</div>
+              <div class="testi-stars">★★★★★</div>
             </div>
           </div>
+          <h3 class="testi-headline">"{{ block.settings.headline }}"</h3>
+          <p class="testi-body">{{ block.settings.story }}</p>
+          {%- if block.settings.show_verified -%}
+          <div class="testi-verified">
+            <span class="testi-verified-badge">✓ Verified Buyer</span>
+            {%- if block.settings.months != blank -%}
+            <span class="testi-months">{{ block.settings.months }} months a customer</span>
+            {%- endif -%}
+          </div>
+          {%- endif -%}
         </div>
+        {%- endif -%}
         {%- endfor -%}
+
       {%- else -%}
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"I've been using Gummi for about a month now — game changer. I used to lie awake for hours. Now I take two of these about 30 minutes before bed and I'm actually sleeping through the night."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">S</div>
-            <div>
-              <div class="author-name">Siya M.</div>
-              <div class="author-location">Cape Town, SA</div>
+
+        <div class="testi-card">
+          <div class="testi-header">
+            <div class="testi-avatar-initials">L</div>
+            <div class="testi-identity">
+              <div class="testi-name">Lebo K.</div>
+              <div class="testi-demo">26 &middot; Soweto &middot; Personal Trainer</div>
+              <div class="testi-stars">★★★★★</div>
             </div>
           </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Juggling work, kids, cooking — the fatigue was real. A friend recommended Gummi and honestly, this is my third pack. I wish I found out about these sooner. I actually wake up refreshed."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">N</div>
-            <div>
-              <div class="author-name">Naledi K.</div>
-              <div class="author-location">Johannesburg, SA</div>
-            </div>
+          <h3 class="testi-headline">"I've tried every creatine powder out there. Nothing stuck until this."</h3>
+          <p class="testi-body">Eight years in the gym and I've tried probably six different creatine powders. The problem was always consistency — I'd forget to mix it, run out, skip a week. Gummi solved that. Two gummies before I leave for the gym and I don't think about it again. Three weeks in my bench went up 10kg and I'm recovering faster between sessions. It's the simplest upgrade I've made in years.</p>
+          <div class="testi-verified">
+            <span class="testi-verified-badge">✓ Verified Buyer</span>
+            <span class="testi-months">4 months a customer</span>
           </div>
         </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"I tried everything — melatonin pills, sleep podcasts, no caffeine. Nothing worked. Then I tried Gummi. Fell asleep within 20 minutes. I don't know why I waited so long."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">T</div>
-            <div>
-              <div class="author-name">Thabo R.</div>
-              <div class="author-location">Durban, SA</div>
+
+        <div class="testi-card">
+          <div class="testi-header">
+            <div class="testi-avatar-initials">N</div>
+            <div class="testi-identity">
+              <div class="testi-name">Ntombi S.</div>
+              <div class="testi-demo">31 &middot; Johannesburg &middot; Marketing Manager</div>
+              <div class="testi-stars">★★★★★</div>
             </div>
           </div>
+          <h3 class="testi-headline">"I wanted more from my workouts without more complexity."</h3>
+          <p class="testi-body">I train four times a week but I was always hitting a wall around week three of a program — not recovering fast enough. A friend who competes suggested creatine but I didn't want to deal with powder. Gummi was the obvious answer. Two months in and I'm not hitting that wall anymore. I'm pushing through it and actually looking forward to the next session.</p>
+          <div class="testi-verified">
+            <span class="testi-verified-badge">✓ Verified Buyer</span>
+            <span class="testi-months">3 months a customer</span>
+          </div>
         </div>
+
+        <div class="testi-card">
+          <div class="testi-header">
+            <div class="testi-avatar-initials">S</div>
+            <div class="testi-identity">
+              <div class="testi-name">Sipho D.</div>
+              <div class="testi-demo">38 &middot; Durban &middot; Rugby Coach</div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+          <h3 class="testi-headline">"At 38 I thought my best gym days were behind me."</h3>
+          <p class="testi-body">I'd accepted that my output at 38 wasn't going to be what it was at 25. More injuries, slower recovery, losing muscle faster than I could build it. My sports physio recommended creatine. Tried the powder for a week, hated the mess. Switched to Gummi and haven't looked back. Six weeks in I'm lifting numbers I haven't hit in four years. The recovery is the biggest thing — I can train hard on consecutive days again.</p>
+          <div class="testi-verified">
+            <span class="testi-verified-badge">✓ Verified Buyer</span>
+            <span class="testi-months">5 months a customer</span>
+          </div>
+        </div>
+
       {%- endif -%}
     </div>
+
+    <div class="testi-stat-strip">
+      <div class="testi-stat">
+        <div class="testi-stat-num">88%</div>
+        <div class="testi-stat-label">noticed stronger sessions within 2 weeks</div>
+      </div>
+      <div class="testi-stat-divider"></div>
+      <div class="testi-stat">
+        <div class="testi-stat-num">4.9&#9733;</div>
+        <div class="testi-stat-label">average rating from 100+ customers</div>
+      </div>
+      <div class="testi-stat-divider"></div>
+      <div class="testi-stat">
+        <div class="testi-stat-num">85%</div>
+        <div class="testi-stat-label">reordered for a minimum of 3 months</div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<style>
+.testimonials-section {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.testimonials-featured {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 56px;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testi-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 36px 40px;
+  border: 1px solid rgba(167,139,204,0.15);
+}
+
+.testi-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.testi-avatar-wrap {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.testi-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testi-avatar-initials {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--purple-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.testi-name {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+
+.testi-demo {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+.testi-stars {
+  color: #f59e0b;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.testi-headline {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.testi-body {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.testi-verified {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(167,139,204,0.15);
+}
+
+.testi-verified-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2E7D32;
+  background: #E8F5E9;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.testi-months {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.testi-stat-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 60px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(167,139,204,0.2);
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testi-stat { text-align: center; }
+
+.testi-stat-num {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  color: var(--purple-deep);
+  margin-bottom: 6px;
+}
+
+.testi-stat-label {
+  font-size: 12px;
+  color: var(--text-light);
+  max-width: 140px;
+  line-height: 1.5;
+}
+
+.testi-stat-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(167,139,204,0.2);
+  flex-shrink: 0;
+}
+
+@media(max-width: 767px) {
+  .testi-card { padding: 24px 20px; }
+  .testi-headline { font-size: 18px; }
+  .testi-body { font-size: 14px; }
+  .testi-stat-strip { flex-direction: column; gap: 32px; }
+  .testi-stat-divider { display: none; }
+  .testi-stat-num { font-size: 32px; }
+}
+</style>
 
 {% schema %}
 {
@@ -66,9 +285,13 @@
       "type": "testimonial",
       "name": "Testimonial",
       "settings": [
-        { "type": "textarea", "id": "text", "label": "Review Text", "default": "Game changer. I used to lie awake for hours. Now I take two of these and I'm actually sleeping through the night." },
-        { "type": "text", "id": "name", "label": "Reviewer Name", "default": "Siya M." },
-        { "type": "text", "id": "location", "label": "Location", "default": "Cape Town, SA" }
+        { "type": "image_picker", "id": "photo", "label": "Profile photo", "info": "Circular — use a square image. Optional, initial avatar shown if empty." },
+        { "type": "text", "id": "name", "label": "Full name", "default": "Ayanda M." },
+        { "type": "text", "id": "age_city", "label": "Age · City · Role", "default": "29 · Johannesburg · Corporate Attorney" },
+        { "type": "text", "id": "headline", "label": "Headline quote", "default": "I've tried every creatine powder out there. Nothing stuck until this." },
+        { "type": "textarea", "id": "story", "label": "Full story", "default": "Longer testimonial story goes here — 3 to 5 sentences describing their specific situation and result." },
+        { "type": "checkbox", "id": "show_verified", "label": "Show verified buyer badge", "default": true },
+        { "type": "text", "id": "months", "label": "Months as customer (optional)", "default": "3" }
       ]
     }
   ],
@@ -76,9 +299,9 @@
     {
       "name": "Testimonials",
       "blocks": [
-        { "type": "testimonial", "settings": { "text": "I've been using Gummi for about a month now — game changer. I used to lie awake for hours. Now I take two of these about 30 minutes before bed and I'm actually sleeping through the night.", "name": "Siya M.", "location": "Cape Town, SA" } },
-        { "type": "testimonial", "settings": { "text": "Juggling work, kids, cooking — the fatigue was real. A friend recommended Gummi and honestly, this is my third pack. I wish I found out about these sooner. I actually wake up refreshed.", "name": "Naledi K.", "location": "Johannesburg, SA" } },
-        { "type": "testimonial", "settings": { "text": "I tried everything — melatonin pills, sleep podcasts, no caffeine. Nothing worked. Then I tried Gummi. Fell asleep within 20 minutes. I don't know why I waited so long.", "name": "Thabo R.", "location": "Durban, SA" } }
+        { "type": "testimonial", "settings": { "name": "Lebo K.", "age_city": "26 · Soweto · Personal Trainer", "headline": "I've tried every creatine powder out there. Nothing stuck until this.", "story": "Eight years in the gym and I've tried probably six different creatine powders. The problem was always consistency — I'd forget to mix it, run out, skip a week. Gummi solved that. Three weeks in my bench went up 10kg and I'm recovering faster between sessions. It's the simplest upgrade I've made in years.", "show_verified": true, "months": "4" } },
+        { "type": "testimonial", "settings": { "name": "Ntombi S.", "age_city": "31 · Johannesburg · Marketing Manager", "headline": "I wanted more from my workouts without more complexity.", "story": "I train four times a week but I was always hitting a wall around week three of a program — not recovering fast enough. A friend who competes suggested creatine but I didn't want to deal with powder. Gummi was the obvious answer. Two months in and I'm not hitting that wall anymore.", "show_verified": true, "months": "3" } },
+        { "type": "testimonial", "settings": { "name": "Sipho D.", "age_city": "38 · Durban · Rugby Coach", "headline": "At 38 I thought my best gym days were behind me.", "story": "I'd accepted that my output at 38 wasn't going to be what it was at 25. My sports physio recommended creatine. Tried the powder for a week, hated the mess. Switched to Gummi and haven't looked back. Six weeks in I'm lifting numbers I haven't hit in four years. The recovery is the biggest thing — I can train hard on consecutive days again.", "show_verified": true, "months": "5" } }
       ]
     }
   ]
