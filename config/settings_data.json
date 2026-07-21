@@ -54,7 +54,7 @@
             "settings": {
               "profile_image": "shopify://shop_images/hf_20260708_190554_93bc4160-8259-43dc-8118-aebf194db671.png",
               "customer_name": "A. Smith",
-              "review_text": "Been taking these for a couple of weeks and they have really helped me to fall asleep quicker and stay asleep! On average I’ve been sleeping an extra 30 mins to an hour each night. I’ve now got a subscription as I am really impressed!",
+              "review_text": "Been taking these for a couple of weeks and they have really helped me to fall asleep quicker and stay asleep! On average I've been sleeping an extra 30 mins to an hour each night. I've now got a subscription as I am really impressed!",
               "star_rating": 5,
               "show_verified": true
             }
@@ -82,18 +82,18 @@
       "ingredients": {
         "type": "ingredients",
         "settings": {
-          "icon_1": "🌙",
-          "name_1": "Melatonin",
-          "role_1": "The Signal",
-          "desc_1": "Tells your brain it's time to wind down — naturally, not forcefully. Melatonin works with your body's rhythm, not against it. You ease into sleep. You're not knocked out.",
-          "icon_2": "🍃",
-          "name_2": "L-Theanine",
-          "role_2": "The Quiet",
-          "desc_2": "Found naturally in green tea, L-Theanine quiets the mental noise that keeps you awake. The meetings you didn't nail. The thing you said in 2019. Gone. It calms without sedating.",
-          "icon_3": "🌸",
-          "name_3": "Passion Flower",
-          "role_3": "The Anchor",
-          "desc_3": "Used for centuries as a natural calming agent. Modern science now backs what traditional medicine always knew — passion flower keeps your nervous system settled through the night."
+          "icon_1": "💪",
+          "name_1": "Creatine Monohydrate",
+          "role_1": "The Powerhouse",
+          "desc_1": "Clinically dosed at 3g per serving — the most researched supplement in sports science. Creatine fuels your muscles, sharpens your focus, and helps you push harder every single session.",
+          "icon_2": "⚡",
+          "name_2": "Vitamin B6",
+          "role_2": "The Catalyst",
+          "desc_2": "Drives energy metabolism so your body actually uses what you put in. B6 supports protein synthesis, reduces fatigue, and keeps your nervous system firing at full capacity.",
+          "icon_3": "💧",
+          "name_3": "Electrolytes",
+          "role_3": "The Balance",
+          "desc_3": "Hydration isn't just water. Electrolytes regulate muscle contractions, prevent cramping, and keep your performance from fading. The part most creatine supplements forget — we didn't."
         }
       },
       "how-it-works": {
