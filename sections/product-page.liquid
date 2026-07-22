@@ -29,8 +29,8 @@
   <div id="reviews-track" style="display:flex;gap:20px;width:max-content;">
     {%- for block in section.blocks -%}
     {%- if block.type == 'review' -%}
-    <div style="min-width:280px;max-width:280px;background:#f5f0fb;border-radius:16px;padding:24px 20px;flex-shrink:0;" {{ block.shopify_attributes }}>
-      <div style="color:#f59e0b;font-size:15px;letter-spacing:1px;margin-bottom:10px;">
+    <div style="min-width:280px;max-width:280px;background:#FEF3DC;border-radius:16px;padding:24px 20px;flex-shrink:0;" {{ block.shopify_attributes }}>
+      <div style="color:#C47200;font-size:15px;letter-spacing:1px;margin-bottom:10px;">
         {%- assign s = block.settings.star_rating -%}
         {%- for i in (1..s) -%}★{%- endfor -%}
         {%- assign e = 5 | minus: s -%}{%- if e > 0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}
@@ -54,8 +54,8 @@
     {%- endfor -%}
     {%- for block in section.blocks -%}
     {%- if block.type == 'review' -%}
-    <div style="min-width:280px;max-width:280px;background:#f5f0fb;border-radius:16px;padding:24px 20px;flex-shrink:0;" aria-hidden="true">
-      <div style="color:#f59e0b;font-size:15px;letter-spacing:1px;margin-bottom:10px;">
+    <div style="min-width:280px;max-width:280px;background:#FEF3DC;border-radius:16px;padding:24px 20px;flex-shrink:0;" aria-hidden="true">
+      <div style="color:#C47200;font-size:15px;letter-spacing:1px;margin-bottom:10px;">
         {%- assign s = block.settings.star_rating -%}
         {%- for i in (1..s) -%}★{%- endfor -%}
         {%- assign e = 5 | minus: s -%}{%- if e > 0 -%}{%- for i in (1..e) -%}☆{%- endfor -%}{%- endif -%}
