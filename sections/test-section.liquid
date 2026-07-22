@@ -1,0 +1,496 @@
+<section class="subscribe-checkout">
+  <div class="container">
+
+    <a href="/products/gummi" class="subscribe-back">← Back to product</a>
+
+    <div class="subscribe-checkout__grid">
+
+      <!-- LEFT: Order Summary -->
+      <div class="subscribe-checkout__left">
+        <div class="subscribe-badge">Subscribe & Save</div>
+        <h1 class="subscribe-checkout__title">Monthly Gummi Delivery</h1>
+        <p class="subscribe-checkout__sub">Better sleep, every month — delivered automatically.</p>
+
+        <div class="subscribe-product-card">
+          <div class="subscribe-product-card__icon">🌙</div>
+          <div class="subscribe-product-card__info">
+            <div class="subscribe-product-card__name">Gummi Sleep Gummies</div>
+            <div class="subscribe-product-card__meta">60 gummies · 1 month supply · All-natural</div>
+          </div>
+          <div class="subscribe-product-card__price">
+            <span class="subscribe-product-card__price-main">R399</span>
+            <span class="subscribe-product-card__price-unit">/mo</span>
+          </div>
+        </div>
+
+        <div class="subscribe-breakdown">
+          <div class="subscribe-breakdown__row">
+            <span>Regular price</span>
+            <span class="subscribe-strikethrough">R449.00</span>
+          </div>
+          <div class="subscribe-breakdown__row subscribe-breakdown__row--savings">
+            <span>Subscriber discount</span>
+            <span>-R50.00</span>
+          </div>
+          <div class="subscribe-breakdown__divider"></div>
+          <div class="subscribe-breakdown__row subscribe-breakdown__row--total">
+            <span>Charged today & monthly</span>
+            <span>R399.00</span>
+          </div>
+        </div>
+
+        <div class="subscribe-perks">
+          <div class="subscribe-perk">✓ Cancel anytime — no lock-in</div>
+          <div class="subscribe-perk">✓ Free delivery on every order</div>
+          <div class="subscribe-perk">✓ Save R50 every month</div>
+          <div class="subscribe-perk">✓ Secure billing via PayFast 🔒</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Customer Details + PayFast -->
+      <div class="subscribe-checkout__right">
+        <h2 class="subscribe-checkout__form-title">Your details</h2>
+        <p class="subscribe-checkout__form-sub">We'll redirect you to PayFast to complete payment securely.</p>
+
+        <form id="subscribe-form" class="subscribe-form" novalidate>
+
+          <!-- Name -->
+          <div class="subscribe-form__row">
+            <div class="subscribe-form__group">
+              <label for="sf-first">First name</label>
+              <input type="text" id="sf-first" placeholder="Jane" required autocomplete="given-name">
+            </div>
+            <div class="subscribe-form__group">
+              <label for="sf-last">Last name</label>
+              <input type="text" id="sf-last" placeholder="Doe" required autocomplete="family-name">
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="subscribe-form__row">
+            <div class="subscribe-form__group">
+              <label for="sf-email">Email address</label>
+              <input type="email" id="sf-email" placeholder="jane@example.com" required autocomplete="email">
+              <span class="subscribe-form__hint">Receipt sent here</span>
+            </div>
+            <div class="subscribe-form__group">
+              <label for="sf-phone">Phone number</label>
+              <input type="tel" id="sf-phone" placeholder="071 234 5678" required autocomplete="tel">
+            </div>
+          </div>
+
+          <!-- Delivery address -->
+          <div class="subscribe-form__section-label">Delivery address</div>
+
+          <div class="subscribe-form__group">
+            <label for="sf-address">Street address</label>
+            <input type="text" id="sf-address" placeholder="12 Main Road, Apt 3" required autocomplete="street-address">
+          </div>
+
+          <div class="subscribe-form__row">
+            <div class="subscribe-form__group">
+              <label for="sf-city">City / Town</label>
+              <input type="text" id="sf-city" placeholder="Cape Town" required autocomplete="address-level2">
+            </div>
+            <div class="subscribe-form__group">
+              <label for="sf-province">Province</label>
+              <select id="sf-province" required>
+                <option value="">Select...</option>
+                <option>Eastern Cape</option>
+                <option>Free State</option>
+                <option>Gauteng</option>
+                <option>KwaZulu-Natal</option>
+                <option>Limpopo</option>
+                <option>Mpumalanga</option>
+                <option>Northern Cape</option>
+                <option>North West</option>
+                <option>Western Cape</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="subscribe-form__group">
+            <label for="sf-postal">Postal code</label>
+            <input type="text" id="sf-postal" placeholder="8001" required autocomplete="postal-code" maxlength="4" pattern="\d{4}" style="max-width:140px;">
+          </div>
+
+          <div id="subscribe-error" class="subscribe-error" style="display:none;"></div>
+
+          <button type="submit" class="btn-primary subscribe-submit" id="subscribe-submit-btn">
+            Subscribe & Pay R399 →
+          </button>
+
+          <p class="subscribe-cancel-note">You'll be charged R399 today and on the same date each month. Cancel anytime via PayFast.</p>
+
+          <div class="subscribe-trust">
+            <span>🔒 SSL Secured</span>
+            <span>💳 PayFast Protected</span>
+            <span>🇿🇦 SA Billing</span>
+          </div>
+        </form>
+
+        <!-- Hidden PayFast subscription form — submitted by JS -->
+        <form id="payfast-form" action="https://www.payfast.co.za/eng/process" method="post" style="display:none;">
+          <input type="hidden" name="merchant_id" value="15727312">
+          <input type="hidden" name="merchant_key" value="can3tiywcph5d">
+          <input type="hidden" name="return_url" value="{{ shop.url }}/pages/thank-you">
+          <input type="hidden" name="cancel_url" value="{{ shop.url }}/pages/subscribe">
+          <input type="hidden" name="notify_url" value="https://gummi-theme.vercel.app/api/payfast-itn">
+          <input type="hidden" name="name_first" id="pf-first" value="">
+          <input type="hidden" name="name_last" id="pf-last" value="">
+          <input type="hidden" name="email_address" id="pf-email" value="">
+          <input type="hidden" name="cell_number" id="pf-phone" value="">
+          <input type="hidden" name="amount" value="399.00">
+          <input type="hidden" name="item_name" value="Gummi Sleep Gummies Monthly Subscription">
+          <input type="hidden" name="custom_str1" id="pf-address" value="">
+          <input type="hidden" name="custom_str2" id="pf-city" value="">
+          <input type="hidden" name="custom_str3" id="pf-province" value="">
+          <input type="hidden" name="custom_str4" id="pf-postal" value="">
+          <input type="hidden" name="subscription_type" value="1">
+          <input type="hidden" name="billing_date" id="pf-billing-date" value="">
+          <input type="hidden" name="recurring_amount" value="399.00">
+          <input type="hidden" name="frequency" value="3">
+          <input type="hidden" name="cycles" value="0">
+          <input type="hidden" name="signature" id="pf-signature" value="">
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.subscribe-checkout {
+  padding: 48px 24px 100px;
+  min-height: 80vh;
+  background: var(--cream);
+}
+.subscribe-back {
+  display: inline-block;
+  color: var(--text-light);
+  font-size: 14px;
+  margin-bottom: 36px;
+  transition: color .2s;
+  font-weight: 500;
+}
+.subscribe-back:hover { color: var(--purple-mid); }
+
+.subscribe-checkout__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 980px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* LEFT */
+.subscribe-badge {
+  display: inline-block;
+  background: var(--purple-deep);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+.subscribe-checkout__title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.subscribe-checkout__sub {
+  font-size: 16px;
+  color: var(--text-mid);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.subscribe-product-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1.5px solid rgba(167,139,204,0.25);
+  margin-bottom: 20px;
+}
+.subscribe-product-card__icon { font-size: 36px; flex-shrink: 0; }
+.subscribe-product-card__info { flex: 1; }
+.subscribe-product-card__name {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.subscribe-product-card__meta { font-size: 13px; color: var(--text-light); }
+.subscribe-product-card__price { flex-shrink: 0; text-align: right; }
+.subscribe-product-card__price-main {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--purple-deep);
+}
+.subscribe-product-card__price-unit { font-size: 14px; color: var(--text-light); }
+
+.subscribe-breakdown {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 20px 24px;
+  border: 1.5px solid rgba(167,139,204,0.25);
+  margin-bottom: 24px;
+}
+.subscribe-breakdown__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--text-mid);
+  padding: 6px 0;
+}
+.subscribe-breakdown__row--savings { color: #2e7d32; font-weight: 500; }
+.subscribe-strikethrough { text-decoration: line-through; color: var(--text-light); }
+.subscribe-breakdown__divider {
+  height: 1px;
+  background: rgba(167,139,204,0.2);
+  margin: 8px 0;
+}
+.subscribe-breakdown__row--total {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-dark);
+  padding-top: 10px;
+}
+
+.subscribe-perks { display: flex; flex-direction: column; gap: 10px; }
+.subscribe-perk { font-size: 14px; color: var(--text-mid); font-weight: 500; }
+
+/* RIGHT */
+.subscribe-checkout__right {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 36px;
+  border: 1px solid rgba(167,139,204,0.2);
+  position: sticky;
+  top: 96px;
+}
+.subscribe-checkout__form-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+.subscribe-checkout__form-sub {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.subscribe-form__section-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--purple-deep);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 14px;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(167,139,204,0.2);
+}
+
+.subscribe-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.subscribe-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.subscribe-form__group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.subscribe-form__group input,
+.subscribe-form__group select {
+  padding: 12px 16px;
+  border: 1.5px solid rgba(167,139,204,0.35);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background: var(--cream);
+  transition: border-color .2s, background .2s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.subscribe-form__group input:focus,
+.subscribe-form__group select:focus {
+  border-color: var(--purple-mid);
+  background: var(--white);
+}
+.subscribe-form__group input::placeholder { color: var(--text-light); }
+.subscribe-form__hint { font-size: 12px; color: var(--text-light); }
+
+.subscribe-error {
+  background: #fdecea;
+  color: #c0392b;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.subscribe-submit {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 16px;
+  padding: 16px;
+}
+.subscribe-submit:disabled { opacity: .7; cursor: not-allowed; }
+
+.subscribe-cancel-note {
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.subscribe-trust {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-light);
+  flex-wrap: wrap;
+}
+
+@media(max-width: 760px) {
+  .subscribe-checkout__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .subscribe-checkout__right { position: static; padding: 28px 20px; }
+  .subscribe-form__row { grid-template-columns: 1fr; }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.2/spark-md5.min.js"></script>
+<script>
+(function () {
+  /* URL encode matching PHP's urlencode() exactly */
+  function pfEnc(v) {
+    return encodeURIComponent(String(v).trim())
+      .replace(/%20/g, '+')
+      .replace(/[!'()*~]/g, function (c) {
+        return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+      });
+  }
+
+  document.getElementById('subscribe-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var first    = document.getElementById('sf-first').value.trim();
+    var last     = document.getElementById('sf-last').value.trim();
+    var email    = document.getElementById('sf-email').value.trim();
+    var phone    = document.getElementById('sf-phone').value.trim();
+    var address  = document.getElementById('sf-address').value.trim();
+    var city     = document.getElementById('sf-city').value.trim();
+    var province = document.getElementById('sf-province').value.trim();
+    var postal   = document.getElementById('sf-postal').value.trim();
+    var errEl    = document.getElementById('subscribe-error');
+    var btn      = document.getElementById('subscribe-submit-btn');
+
+    /* Validate */
+    if (!first || !last || !email || !phone || !address || !city || !province || !postal) {
+      errEl.textContent = 'Please fill in all fields.';
+      errEl.style.display = 'block';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = 'Please enter a valid email address.';
+      errEl.style.display = 'block';
+      return;
+    }
+    if (!/^\d{4}$/.test(postal)) {
+      errEl.textContent = 'Please enter a valid 4-digit postal code.';
+      errEl.style.display = 'block';
+      return;
+    }
+    errEl.style.display = 'none';
+
+    /* Today's date as billing_date */
+    var now = new Date();
+    var billingDate = now.getFullYear() + '-' +
+      String(now.getMonth() + 1).padStart(2, '0') + '-' +
+      String(now.getDate()).padStart(2, '0');
+
+    var shopUrl = '{{ shop.url }}';
+
+    /* Build params IN ORDER — order matters for PayFast signature */
+    var params = [
+      ['merchant_id',      '15727312'],
+      ['merchant_key',     'can3tiywcph5d'],
+      ['return_url',       shopUrl + '/pages/thank-you'],
+      ['cancel_url',       shopUrl + '/pages/subscribe'],
+      ['notify_url',       'https://gummi-theme.vercel.app/api/payfast-itn'],
+      ['name_first',       first],
+      ['name_last',        last],
+      ['email_address',    email],
+      ['cell_number',      phone],
+      ['amount',           '399.00'],
+      ['item_name',        'Gummi Sleep Gummies Monthly Subscription'],
+      ['custom_str1',      address],
+      ['custom_str2',      city],
+      ['custom_str3',      province],
+      ['custom_str4',      postal],
+      ['subscription_type','1'],
+      ['billing_date',     billingDate],
+      ['recurring_amount', '399.00'],
+      ['frequency',        '3'],
+      ['cycles',           '0']
+    ];
+
+    /* Build signature string, append passphrase, then hash */
+    var sigStr = params.map(function (p) { return p[0] + '=' + pfEnc(p[1]); }).join('&');
+    sigStr += '&passphrase=' + pfEnc('Gummiwellness_2003');
+    var signature = SparkMD5.hash(sigStr);
+
+    /* Populate the hidden PayFast form */
+    document.getElementById('pf-first').value        = first;
+    document.getElementById('pf-last').value         = last;
+    document.getElementById('pf-email').value        = email;
+    document.getElementById('pf-phone').value        = phone;
+    document.getElementById('pf-address').value      = address;
+    document.getElementById('pf-city').value         = city;
+    document.getElementById('pf-province').value     = province;
+    document.getElementById('pf-postal').value       = postal;
+    document.getElementById('pf-billing-date').value = billingDate;
+    document.getElementById('pf-signature').value    = signature;
+
+    btn.textContent = 'Redirecting to PayFast...';
+    btn.disabled = true;
+
+    document.getElementById('payfast-form').submit();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Subscribe Checkout",
+  "settings": [],
+  "presets": [{ "name": "Subscribe Checkout" }]
+}
+{% endschema %}
