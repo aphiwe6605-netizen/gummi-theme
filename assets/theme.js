@@ -107,10 +107,9 @@ document.addEventListener('DOMContentLoaded', function () {
             basePrice = parseFloat(raw);
             priceEl.dataset.basePrice = basePrice;
           }
-          var discounted = (basePrice * 0.9).toFixed(2);
           // Format as South African Rand matching Shopify money format
           priceEl.textContent = isSubscribe
-            ? 'R ' + discounted
+            ? 'R 399.00'
             : 'R ' + basePrice.toFixed(2);
 
           // Update savings badge to reflect actual saving vs compare-at price
@@ -120,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (compareAtEl) {
               var compareAtRaw = compareAtEl.textContent.replace(/[^\d.]/g, '');
               var compareAt = parseFloat(compareAtRaw);
-              var currentPrice = isSubscribe ? parseFloat(discounted) : basePrice;
+              var currentPrice = isSubscribe ? 399 : basePrice;
               var saving = (compareAt - currentPrice).toFixed(2);
               savingsBadge.textContent = 'Save R ' + saving;
             }

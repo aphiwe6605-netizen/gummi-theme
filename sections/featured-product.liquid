@@ -84,8 +84,8 @@
           <span class="toggle-sub">{{ first_variant.price | money }}</span>
         </button>
         <button type="button" class="purchase-toggle__btn" data-type="subscribe">
-          <span class="toggle-label">Subscribe &amp; Save <span class="save-badge">10% OFF</span></span>
-          <span class="toggle-sub">From {{ first_variant.price | times: 0.9 | money }}/month</span>
+          <span class="toggle-label">Subscribe &amp; Save <span class="save-badge">Save R50</span></span>
+          <span class="toggle-sub">From R399/month</span>
         </button>
       </div>
 
@@ -93,8 +93,8 @@
       <div class="subscribe-options" id="subscribe-options-hp">
         <label>Delivery frequency</label>
         <select id="subscribe-freq-hp">
-          <option value="1">Every month — {{ first_variant.price | times: 0.9 | money }}</option>
-          <option value="2">Every 2 months — {{ first_variant.price | times: 0.85 | money }}</option>
+          <option value="1">Every month — R399</option>
+          <option value="2">Every 2 months — R399</option>
         </select>
         <div class="subscribe-perk">✅ Cancel or pause anytime · No lock-in</div>
       </div>
