@@ -1,50 +1,7 @@
 /* ── GUMMI THEME JS ── */
 
-// ── Buy 2 Get 1 Free — gift auto-sync ──
-var GIFT_VARIANT_ID = 47726355447913;
-var GIFT_PROP = '_gummi_gift';
-
-function syncGiftItems(onChanged, onSynced) {
-  fetch('/cart.js')
-    .then(function(r) { return r.json(); })
-    .then(function(cart) {
-      var paidQty = 0, giftQty = 0, giftKey = null;
-      cart.items.forEach(function(item) {
-        if (item.variant_id === GIFT_VARIANT_ID) {
-          if (item.properties && item.properties[GIFT_PROP] === 'true') {
-            giftQty = item.quantity;
-            giftKey = item.key;
-          } else {
-            paidQty += item.quantity;
-          }
-        }
-      });
-      var expected = Math.floor(paidQty / 2);
-      if (expected === giftQty) { if (onSynced) onSynced(); return; }
-      var url, body, props = {};
-      props[GIFT_PROP] = 'true';
-      if (expected === 0 && giftKey) {
-        url = '/cart/change.js'; body = { id: giftKey, quantity: 0 };
-      } else if (giftKey) {
-        url = '/cart/change.js'; body = { id: giftKey, quantity: expected };
-      } else {
-        url = '/cart/add.js'; body = { id: GIFT_VARIANT_ID, quantity: expected, properties: props };
-      }
-      fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      }).then(function() { if (onChanged) onChanged(); });
-    });
-}
-
 // FAQ Accordion
 document.addEventListener('DOMContentLoaded', function () {
-
-  // Sync gift items on cart page load
-  if (window.location.pathname === '/cart') {
-    syncGiftItems(function() { window.location.reload(); });
-  }
 
   document.querySelectorAll('.faq-question').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -211,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
           atcBtn.disabled = false;
           window.location.href = '/cart';
         }
-        setTimeout(function () { syncGiftItems(goToCart, goToCart); }, 800);
+        setTimeout(goToCart, 800);
       })
       .catch(function () {
         atcBtn.textContent = 'Add to Cart →';
