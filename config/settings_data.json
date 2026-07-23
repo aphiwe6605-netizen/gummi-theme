@@ -51,8 +51,9 @@
           "review_4": {
             "type": "review",
             "settings": {
-              "customer_name": "Lerato D.",
-              "review_text": "I've been training for 5 years and this is the most consistent I've ever been with creatine. Tasting good actually makes you remember to take it.",
+              "profile_image": "shopify://shop_images/hf_20260708_190048_e90f1f47-4c0d-4b11-8822-e330419fa15f.png",
+              "customer_name": "Anja V. · 22 · Johannesburg · University Student",
+              "review_text": "Better mood, better focus, better gym sessions, all from one gummy.\n\nI bought Gummi for the gym but the mood improvement caught me off guard. Exam season usually wrecks me, irritable, anxious, unfocused. This year I was calmer and could actually sit and study for hours straight. Best semester I've had, and I'm convinced Gummi had something to do with it.",
               "star_rating": 5,
               "show_verified": true
             }
