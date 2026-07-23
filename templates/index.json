@@ -64,21 +64,21 @@
         "t1": {
           "type": "testimonial",
           "settings": {
-            "name": "Lebo K.",
-            "age_city": "26 · Soweto · Personal Trainer",
-            "headline": "I've tried every creatine powder out there. Nothing stuck until this.",
-            "story": "Eight years in the gym and I've tried probably six different creatine powders. The problem was always consistency — I'd forget to mix it, run out, skip a week. Gummi solved that. Three weeks in my bench went up 10kg and I'm recovering faster between sessions. It's the simplest upgrade I've made in years.",
+            "name": "Thabo M.",
+            "age_city": "29 · Pretoria · Software Developer",
+            "headline": "The brain fog I'd normalised for two years is just... gone.",
+            "story": "I work long hours at a screen and I'd accepted that afternoon brain fog was just part of the job. A gym friend mentioned creatine helps with cognitive function too, so I tried Gummi. Two weeks in, my focus sharpened noticeably — I'm getting more done in less time and I'm not hitting that 3pm wall anymore. Didn't expect it to change my work life, but here we are.",
             "show_verified": true,
-            "months": "4"
+            "months": "2"
           }
         },
         "t2": {
           "type": "testimonial",
           "settings": {
-            "name": "Ntombi S.",
-            "age_city": "31 · Johannesburg · Marketing Manager",
-            "headline": "I wanted more from my workouts without more complexity.",
-            "story": "I train four times a week but I was always hitting a wall around week three of a program — not recovering fast enough. A friend who competes suggested creatine but I didn't want to deal with powder. Gummi was the obvious answer. Two months in and I'm not hitting that wall anymore.",
+            "name": "Ayanda N.",
+            "age_city": "24 · Cape Town · CrossFit Athlete",
+            "headline": "My recovery used to take 2 days. Now I'm back the next morning.",
+            "story": "I train six days a week and recovery was always my limiting factor. I'd be sore for two days after a heavy session which meant I was constantly backing off intensity. Started Gummi three months ago and the difference in recovery is the first thing I noticed — within two weeks I was training hard back-to-back days without the usual soreness dragging me down. My coach noticed the improvement before I even told her what I'd changed.",
             "show_verified": true,
             "months": "3"
           }
@@ -86,19 +86,43 @@
         "t3": {
           "type": "testimonial",
           "settings": {
+            "name": "Zanele D.",
+            "age_city": "35 · Johannesburg · Nurse",
+            "headline": "12-hour shifts used to destroy me. These gummies changed that.",
+            "story": "Working night shifts and back-to-back 12-hour days, I was running on empty. I started taking Gummi before my shifts and within three weeks my energy levels through a shift are noticeably more stable — not a caffeine spike and crash, just sustained. I'm less exhausted when I get home and actually have something left for my family. I tell every colleague who complains about fatigue to try these.",
+            "show_verified": true,
+            "months": "4"
+          }
+        },
+        "t4": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Kagiso R.",
+            "age_city": "22 · Johannesburg · University Student",
+            "headline": "Better mood, better focus, better gym sessions — all from one gummy.",
+            "story": "I started taking Gummi for gym performance but the mood improvement is what actually surprised me. Exam season is brutal and I usually get irritable and anxious. This year felt different — I was calmer, more even, and my study sessions were more productive. I'm not saying it's magic, but the combination of better sleep quality, better workouts, and the cognitive boost from creatine added up to the best semester I've had.",
+            "show_verified": true,
+            "months": "5"
+          }
+        },
+        "t5": {
+          "type": "testimonial",
+          "settings": {
             "name": "Sipho D.",
             "age_city": "38 · Durban · Rugby Coach",
             "headline": "At 38 I thought my best gym days were behind me.",
-            "story": "I'd accepted that my output at 38 wasn't going to be what it was at 25. My sports physio recommended creatine. Tried the powder for a week, hated the mess. Switched to Gummi and haven't looked back. Six weeks in I'm lifting numbers I haven't hit in four years.",
+            "story": "I'd accepted that my output at 38 wasn't going to be what it was at 25. My sports physio recommended creatine for recovery and cognitive sharpness. Tried powder for a week, hated the mess. Switched to Gummi and haven't looked back. Six weeks in I'm lifting numbers I haven't hit in four years, my mood on rest days is better, and I'm thinking more clearly on the field too. It covers more bases than I expected.",
             "show_verified": true,
-            "months": "5"
+            "months": "6"
           }
         }
       },
       "block_order": [
         "t1",
         "t2",
-        "t3"
+        "t3",
+        "t4",
+        "t5"
       ],
       "settings": {}
     },
