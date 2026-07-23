@@ -9,171 +9,19 @@
  */
 {
   "current": {
-    "favicon": "shopify://shop_images/hf_20260721_192728_d1f37deb-a73a-4cbc-bb72-0a39bcbdef6e.png",
     "announcement_text": "🇿🇦 Free delivery on orders over R800",
     "contact_email": "gummiwellness@gmail.com",
     "instagram_url": "",
     "facebook_url": "",
     "tiktok_url": "",
     "sections": {
-      "product-page": {
-        "type": "product-page",
-        "blocks": {
-          "review_Df9WMC": {
-            "type": "review",
-            "settings": {
-              "profile_image": "shopify://shop_images/hf_20260708_190836_5165fd02-090d-4779-9a5c-91b9001a2d6f.png",
-              "customer_name": "J. Bester · 35 · Johannesburg · Nurse",
-              "review_text": "12-hour shifts used to destroy me. These gummies changed that.\n\nBack-to-back 12-hour shifts had me running on empty by hour eight. Short-tempered, depleted, nothing left for my family at home. Three weeks on Gummi and my energy through a shift is noticeably steadier. No spike and crash, just a stable baseline. I'm sharper at the end of a long shift than I used to be at the start.",
-              "star_rating": 5,
-              "show_verified": true
-            }
-          },
-          "review_kimwki": {
-            "type": "review",
-            "settings": {
-              "profile_image": "shopify://shop_images/hf_20260708_190720_d26fa23b-9de2-4e3e-a029-6bcb76b67bf9.png",
-              "customer_name": "M. Zwane · 29 · Pretoria · Software Developer",
-              "review_text": "The brain fog I'd normalised for two years is just... gone.\n\nI work 10-hour days at a screen and assumed the 2pm brain fog was just adult life. A gym friend mentioned creatine helps with cognitive function, so I tried Gummi. Two weeks in my focus sharpened noticeably, I stopped losing my train of thought and I'm getting more done in the back half of the day than I ever used to.",
-              "star_rating": 5,
-              "show_verified": true
-            }
-          },
-          "review_U63crM": {
-            "type": "review",
-            "settings": {
-              "profile_image": "shopify://shop_images/hf_20260708_191847_a62683b1-7617-40ee-a7c2-c3efa2d4a379.png",
-              "customer_name": "N. Radebe · 24 · Cape Town · CrossFit Athlete",
-              "review_text": "My recovery used to take 2 days. Now I'm back the next morning.\n\nI train six days a week and recovery was always my limiting factor, 48 hours of soreness after every heavy session. Started Gummi three months ago and within two weeks I was hitting back-to-back hard sessions without the usual soreness dragging me down. My coach noticed the improvement before I even told her what I'd changed.",
-              "star_rating": 5,
-              "show_verified": true
-            }
-          },
-          "review_4yeChD": {
-            "type": "review",
-            "settings": {
-              "profile_image": "shopify://shop_images/hf_20260708_190554_93bc4160-8259-43dc-8118-aebf194db671.png",
-              "customer_name": "A. Smith · 38 · Durban · Rugby Coach",
-              "review_text": "At 38 I thought my best gym days were behind me.\n\nRecovery was slower, strength had plateaued, and I was waking up tired. My sports physio recommended creatine. Tried powder, hated it, switched to Gummi. Six weeks later I'm lifting numbers I haven't hit in four years, my mood on rest days is better, and I'm thinking more clearly on the field. Covers more bases than I expected.",
-              "star_rating": 5,
-              "show_verified": true
-            }
-          },
-          "review_MWkPfg": {
-            "type": "review",
-            "settings": {
-              "profile_image": "shopify://shop_images/hf_20260708_190048_e90f1f47-4c0d-4b11-8822-e330419fa15f.png",
-              "customer_name": "H. Fourie · 22 · Johannesburg · University Student",
-              "review_text": "Better mood, better focus, better gym sessions, all from one gummy.\n\nI bought Gummi for the gym but the mood improvement caught me off guard. Exam season usually wrecks me, irritable, anxious, unfocused. This year I was calmer and could actually sit and study for hours straight. Best semester I've had, and I'm convinced Gummi had something to do with it.",
-              "star_rating": 5,
-              "show_verified": true
-            }
-          }
-        },
-        "block_order": [
-          "review_Df9WMC",
-          "review_kimwki",
-          "review_U63crM",
-          "review_4yeChD",
-          "review_MWkPfg"
-        ],
-        "settings": {
-          "banner_image": "shopify://shop_images/hf_20260722_203436_0627d189-6771-4e24-bee3-aea8b5ea3379.png"
-        }
-      },
-      "ingredients": {
-        "type": "ingredients",
-        "settings": {
-          "icon_1": "💪",
-          "name_1": "Creatine Monohydrate",
-          "role_1": "The Powerhouse",
-          "desc_1": "Clinically dosed at 3g per serving — the most researched supplement in sports science. Creatine fuels your muscles, sharpens your focus, and helps you push harder every single session.",
-          "icon_2": "⚡",
-          "name_2": "Vitamin B6",
-          "role_2": "The Catalyst",
-          "desc_2": "Drives energy metabolism so your body actually uses what you put in. B6 supports protein synthesis, reduces fatigue, and keeps your nervous system firing at full capacity.",
-          "icon_3": "💧",
-          "name_3": "Electrolytes",
-          "role_3": "The Balance",
-          "desc_3": "Hydration isn't just water. Electrolytes regulate muscle contractions, prevent cramping, and keep your performance from fading. The part most creatine supplements forget — we didn't."
-        }
-      },
-      "how-it-works": {
-        "type": "how-it-works",
-        "settings": {}
-      },
-      "testimonials": {
-        "type": "testimonials",
-        "settings": {}
-      },
-      "faq": {
-        "type": "faq",
-        "settings": {}
-      },
       "cta-banner": {
         "type": "cta-banner",
         "settings": {
-          "price": "450"
-        }
-      },
-      "ugc-video-wall": {
-        "type": "ugc-video-wall",
-        "blocks": {
-          "video_b9QVqw": {
-            "type": "video",
-            "settings": {
-              "video_file": "shopify://files/videos/0720 (2).mov",
-              "thumbnail": "shopify://shop_images/Screenshot_2026-07-21_at_00.05.04.png",
-              "platform": "TikTok",
-              "caption": ""
-            }
-          },
-          "video_NQkRiC": {
-            "type": "video",
-            "settings": {
-              "video_file": "shopify://files/videos/0720 (1).mov",
-              "thumbnail": "shopify://shop_images/0720_1_1.png",
-              "platform": "TikTok",
-              "caption": ""
-            }
-          },
-          "video_J8MCwL": {
-            "type": "video",
-            "settings": {
-              "video_file": "shopify://files/videos/0720.mov",
-              "thumbnail": "shopify://shop_images/0720_1.png",
-              "platform": "TikTok",
-              "caption": ""
-            }
-          }
-        },
-        "block_order": [
-          "video_b9QVqw",
-          "video_NQkRiC",
-          "video_J8MCwL"
-        ],
-        "settings": {
-          "label": "Trending on Social",
-          "heading": "Real customers, real results",
-          "subheading": "Going viral on TikTok & Instagram — watch why South Africans are switching to Gummi."
-        }
-      },
-      "sleep-timeline": {
-        "type": "sleep-timeline",
-        "settings": {}
-      },
-      "comparison": {
-        "type": "comparison",
-        "settings": {}
-      },
-      "guarantee": {
-        "type": "guarantee",
-        "settings": {
-          "price": "499"
+          "price": "449"
         }
       }
-    },
-    "content_for_index": []
+    }
   },
   "presets": {}
 }
