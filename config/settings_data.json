@@ -21,8 +21,9 @@
           "review_1": {
             "type": "review",
             "settings": {
-              "customer_name": "Nandi T.",
-              "review_text": "I've been taking creatine powder for years and always hated the chalky taste. These gummies are a game changer — same gains, way better experience.",
+              "profile_image": "shopify://shop_images/hf_20260708_190720_d26fa23b-9de2-4e3e-a029-6bcb76b67bf9.png",
+              "customer_name": "Thabo M. · 29 · Pretoria · Software Developer",
+              "review_text": "The brain fog I'd normalised for two years is just... gone.\n\nI work 10-hour days at a screen and assumed the 2pm brain fog was just adult life. A gym friend mentioned creatine helps with cognitive function, so I tried Gummi. Two weeks in my focus sharpened noticeably, I stopped losing my train of thought and I'm getting more done in the back half of the day than I ever used to.",
               "star_rating": 5,
               "show_verified": true
             }
