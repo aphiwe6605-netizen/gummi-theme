@@ -41,8 +41,9 @@
           "review_3": {
             "type": "review",
             "settings": {
-              "customer_name": "Aisha K.",
-              "review_text": "No more clumping creatine in my shaker bottle. These gummies are so much easier and I've noticed a real difference in my endurance at the gym.",
+              "profile_image": "shopify://shop_images/hf_20260708_190836_5165fd02-090d-4779-9a5c-91b9001a2d6f.png",
+              "customer_name": "Aisha K. · 35 · Johannesburg · Nurse",
+              "review_text": "12-hour shifts used to destroy me. These gummies changed that.\n\nBack-to-back 12-hour shifts had me running on empty by hour eight. Short-tempered, depleted, nothing left for my family at home. Three weeks on Gummi and my energy through a shift is noticeably steadier. No spike and crash, just a stable baseline. I'm sharper at the end of a long shift than I used to be at the start.",
               "star_rating": 5,
               "show_verified": true
             }
