@@ -95,6 +95,7 @@
           "ugc_2": {
             "type": "video",
             "settings": {
+              "video_file": "shopify://files/videos/0720 (1).mov",
               "thumbnail": "shopify://shop_images/0720_1_1.png",
               "platform": "TikTok",
               "caption": ""
@@ -103,6 +104,7 @@
           "ugc_1": {
             "type": "video",
             "settings": {
+              "video_file": "shopify://files/videos/0720.mov",
               "thumbnail": "shopify://shop_images/0720_1.png",
               "platform": "TikTok",
               "caption": ""
