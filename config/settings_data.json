@@ -17,10 +17,6 @@
     "sections": {
       "product-page": {
         "type": "product-page",
-        "settings": {
-          "banner_image": "shopify://shop_images/idea.png",
-          "banner_image_2": "shopify://shop_images/idea-2.png"
-        },
         "blocks": {
           "review_1": {
             "type": "review",
@@ -74,42 +70,53 @@
           "review_3",
           "review_4",
           "review_5"
-        ]
+        ],
+        "settings": {
+          "banner_image": "shopify://shop_images/hf_20260722_203436_0627d189-6771-4e24-bee3-aea8b5ea3379.png"
+        }
       },
       "ugc-video-wall": {
         "type": "ugc-video-wall",
-        "settings": {},
         "blocks": {
-          "ugc_1": {
+          "ugc_3": {
             "type": "video",
             "settings": {
-              "thumbnail": "shopify://shop_images/0720_1.png",
-              "platform": "TikTok"
+              "video_file": "shopify://files/videos/0720 (2).mov",
+              "thumbnail": "shopify://shop_images/Screenshot_2026-07-21_at_00.05.04.png",
+              "platform": "TikTok",
+              "caption": ""
             }
           },
           "ugc_2": {
             "type": "video",
             "settings": {
               "thumbnail": "shopify://shop_images/0720_1_1.png",
-              "platform": "TikTok"
+              "platform": "TikTok",
+              "caption": ""
             }
           },
-          "ugc_3": {
+          "ugc_1": {
             "type": "video",
             "settings": {
-              "platform": "TikTok"
+              "thumbnail": "shopify://shop_images/0720_1.png",
+              "platform": "TikTok",
+              "caption": ""
             }
           }
         },
         "block_order": [
-          "ugc_1",
+          "ugc_3",
           "ugc_2",
-          "ugc_3"
-        ]
+          "ugc_1"
+        ],
+        "settings": {
+          "label": "Trending on Social",
+          "heading": "Real customers, real results",
+          "subheading": "Going viral on TikTok & Instagram — watch why South Africans are switching to Gummi."
+        }
       },
       "testimonials": {
         "type": "testimonials",
-        "settings": {},
         "blocks": {
           "pt1": {
             "type": "testimonial",
@@ -173,15 +180,52 @@
           "pt3",
           "pt4",
           "pt5"
-        ]
+        ],
+        "settings": {}
       },
       "cta-banner": {
         "type": "cta-banner",
         "settings": {
           "price": "449"
         }
+      },
+      "sleep-timeline": {
+        "type": "sleep-timeline",
+        "settings": {}
+      },
+      "comparison": {
+        "type": "comparison",
+        "settings": {}
+      },
+      "ingredients": {
+        "type": "ingredients",
+        "settings": {
+          "icon_1": "💪",
+          "name_1": "Creatine Monohydrate",
+          "role_1": "The Powerhouse",
+          "desc_1": "Clinically dosed at 3g per serving — the most researched supplement in sports science. Creatine fuels your muscles, sharpens your focus, and helps you push harder every single session.",
+          "icon_2": "⚡",
+          "name_2": "Vitamin B6",
+          "role_2": "The Catalyst",
+          "desc_2": "Drives energy metabolism so your body actually uses what you put in. B6 supports protein synthesis, reduces fatigue, and keeps your nervous system firing at full capacity.",
+          "icon_3": "💧",
+          "name_3": "Electrolytes",
+          "role_3": "The Balance",
+          "desc_3": "Hydration isn't just water. Electrolytes regulate muscle contractions, prevent cramping, and keep your performance from fading. The part most creatine supplements forget — we didn't."
+        }
+      },
+      "faq": {
+        "type": "faq",
+        "settings": {}
+      },
+      "guarantee": {
+        "type": "guarantee",
+        "settings": {
+          "price": "449"
+        }
       }
-    }
+    },
+    "content_for_index": []
   },
   "presets": {}
 }
