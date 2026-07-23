@@ -107,7 +107,7 @@
         {%- else -%}
           <span class="price" id="product-price">{{ product.price | money }}</span>
         {%- endif -%}
-        <p class="price-note">60 gummies · 30-day supply</p>
+        <p class="price-note">30 gummies · 30-day supply</p>
       </div>
 
       <!-- Qty + ATC -->
@@ -143,31 +143,31 @@
 
     <!-- RIGHT: PRODUCT INFO -->
     <div class="product-info" style="padding-top:48px;">
-      <div class="product-info__flavour-badge">🫐 Wild Berry Flavour</div>
+      <div class="product-info__flavour-badge">🍊 Juicy Citrus · High Performance</div>
 
-      <h1 class="product-info__name">{{ product.title | default: 'Sleep With Benefits' }}</h1>
-      <p class="product-info__tagline">Melatonin + L-Theanine + Passion Flower</p>
+      <h1 class="product-info__name">{{ product.title | default: 'Creatine Gummies' }}</h1>
+      <p class="product-info__tagline">Creatine Monohydrate + Vitamin B6 + Electrolytes</p>
 
       <div class="product-info__stars">
-        ★★★★★ <span>4.9 · 100+ happy sleepers</span>
+        ★★★★★ <span>4.9 · 100+ happy athletes</span>
       </div>
 
       <p class="product-info__desc">
-        {{ product.description | default: 'Your body already knows how to sleep. It just needs the right conditions. Gummi creates them — naturally, without knocking you out or leaving you groggy in the morning.' | strip_html | truncate: 200 }}
+        {{ product.description | default: 'The most researched supplement in sports nutrition — now in a delicious gummy. No powder, no mixing, no chalky taste. Just pure creatine monohydrate that actually tastes good.' | strip_html | truncate: 200 }}
       </p>
 
       <div class="ingredient-pills">
-        <span class="pill">🌙 Melatonin</span>
-        <span class="pill">🍃 L-Theanine</span>
-        <span class="pill">🌸 Passion Flower</span>
+        <span class="pill">💪 Creatine Monohydrate</span>
+        <span class="pill">⚡ Vitamin B6</span>
+        <span class="pill">🍊 Citrus Flavour</span>
       </div>
 
       <ul class="product-info__benefits">
-        <li><span class="benefit-dot"></span> Fall asleep faster — no more ceiling staring</li>
-        <li><span class="benefit-dot"></span> Stay asleep through the night</li>
-        <li><span class="benefit-dot"></span> Wake up refreshed, not groggy</li>
-        <li><span class="benefit-dot"></span> 60 delicious wild berry gummies per pouch</li>
-        <li><span class="benefit-dot"></span> Vegan, all-natural, no dependency</li>
+        <li><span class="benefit-dot"></span> Build lean muscle — faster than any powder</li>
+        <li><span class="benefit-dot"></span> Increase strength &amp; power output</li>
+        <li><span class="benefit-dot"></span> Improve endurance &amp; workout performance</li>
+        <li><span class="benefit-dot"></span> 30 delicious juicy citrus gummies per pouch</li>
+        <li><span class="benefit-dot"></span> Vegan, no chalky powder, no mixing required</li>
       </ul>
 
       {%- if product != empty -%}
