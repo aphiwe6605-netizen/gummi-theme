@@ -29,7 +29,9 @@
     },
     "featured_product": {
       "type": "featured-product",
-      "settings": {}
+      "settings": {
+        "product": "gummi"
+      }
     },
     "ingredients": {
       "type": "ingredients",

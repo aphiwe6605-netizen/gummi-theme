@@ -19,7 +19,7 @@
 .gallery-arrow--next { right: 10px; }
 </style>
 
-{%- assign first_variant = product.first_available_variant -%}
+{%- assign first_variant = product.first_available_variant | default: product.variants.first -%}
 
 <section class="featured-product" id="product">
   <div class="featured-product__grid">
@@ -124,9 +124,9 @@
           type="submit"
           class="add-to-cart"
           data-variant-id="{{ first_variant.id }}"
-          {% unless first_variant.available %}disabled{% endunless %}
+          {% unless product.available or first_variant.available %}disabled{% endunless %}
         >
-          {%- if first_variant.available -%}
+          {%- if product.available or first_variant.available -%}
             Add to Cart →
           {%- else -%}
             Sold Out
