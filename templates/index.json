@@ -12,9 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "price": "450",
-        "heading": "Sleep with benefits.",
-        "subheading": "Two gummies. Thirty minutes. That's it."
+        "price": "399"
       }
     },
     "stats": {
@@ -31,25 +29,23 @@
     },
     "featured_product": {
       "type": "featured-product",
-      "settings": {
-        "product": "gummi"
-      }
+      "settings": {}
     },
     "ingredients": {
       "type": "ingredients",
       "settings": {
-        "icon_1": "🌙",
-        "name_1": "Melatonin",
-        "role_1": "The Signal",
-        "desc_1": "Tells your brain it's time to wind down — naturally, not forcefully. Melatonin works with your body's rhythm, not against it. You ease into sleep. You're not knocked out.",
-        "icon_2": "🍃",
-        "name_2": "L-Theanine",
-        "role_2": "The Quiet",
-        "desc_2": "Found naturally in green tea, L-Theanine quiets the mental noise that keeps you awake. The meetings you didn't nail. The thing you said in 2019. Gone. It calms without sedating.",
-        "icon_3": "🌸",
-        "name_3": "Passion Flower",
-        "role_3": "The Anchor",
-        "desc_3": "Used for centuries as a natural calming agent. Modern science now backs what traditional medicine always knew — passion flower keeps your nervous system settled through the night."
+        "icon_1": "💪",
+        "name_1": "Creatine Monohydrate",
+        "role_1": "The Powerhouse",
+        "desc_1": "Clinically dosed at 3g per serving — the most researched supplement in sports science. Creatine fuels your muscles, sharpens your focus, and helps you push harder every single session.",
+        "icon_2": "⚡",
+        "name_2": "Vitamin B6",
+        "role_2": "The Catalyst",
+        "desc_2": "Drives energy metabolism so your body actually uses what you put in. B6 supports protein synthesis, reduces fatigue, and keeps your nervous system firing at full capacity.",
+        "icon_3": "💧",
+        "name_3": "Electrolytes",
+        "role_3": "The Balance",
+        "desc_3": "Hydration isn't just water. Electrolytes regulate muscle contractions, prevent cramping, and keep your performance from fading. The part most creatine supplements forget — we didn't."
       }
     },
     "how_it_works": {
@@ -66,25 +62,34 @@
         "t1": {
           "type": "testimonial",
           "settings": {
-            "text": "I've been using Gummi for about a month now — game changer. I used to lie awake for hours. Now I actually sleep through the night.",
-            "name": "Siya M.",
-            "location": "Cape Town, SA"
+            "name": "Lebo K.",
+            "age_city": "26 · Soweto · Personal Trainer",
+            "headline": "I've tried every creatine powder out there. Nothing stuck until this.",
+            "story": "Eight years in the gym and I've tried probably six different creatine powders. The problem was always consistency — I'd forget to mix it, run out, skip a week. Gummi solved that. Three weeks in my bench went up 10kg and I'm recovering faster between sessions. It's the simplest upgrade I've made in years.",
+            "show_verified": true,
+            "months": "4"
           }
         },
         "t2": {
           "type": "testimonial",
           "settings": {
-            "text": "Juggling work, kids, cooking — the fatigue was real. This is my third pack and I honestly wish I found these sooner.",
-            "name": "Naledi K.",
-            "location": "Johannesburg, SA"
+            "name": "Ntombi S.",
+            "age_city": "31 · Johannesburg · Marketing Manager",
+            "headline": "I wanted more from my workouts without more complexity.",
+            "story": "I train four times a week but I was always hitting a wall around week three of a program — not recovering fast enough. A friend who competes suggested creatine but I didn't want to deal with powder. Gummi was the obvious answer. Two months in and I'm not hitting that wall anymore.",
+            "show_verified": true,
+            "months": "3"
           }
         },
         "t3": {
           "type": "testimonial",
           "settings": {
-            "text": "I tried everything. Nothing worked. Then I tried Gummi. Fell asleep within 20 minutes. I don't know why I waited so long.",
-            "name": "Thabo R.",
-            "location": "Durban, SA"
+            "name": "Sipho D.",
+            "age_city": "38 · Durban · Rugby Coach",
+            "headline": "At 38 I thought my best gym days were behind me.",
+            "story": "I'd accepted that my output at 38 wasn't going to be what it was at 25. My sports physio recommended creatine. Tried the powder for a week, hated the mess. Switched to Gummi and haven't looked back. Six weeks in I'm lifting numbers I haven't hit in four years.",
+            "show_verified": true,
+            "months": "5"
           }
         }
       },
@@ -97,64 +102,12 @@
     },
     "faq": {
       "type": "faq",
-      "blocks": {
-        "f1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How many gummies do I take?",
-            "answer": "Take 2 gummies approximately 30 minutes before you want to fall asleep. Do not exceed the recommended dose."
-          }
-        },
-        "f2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Will I feel groggy in the morning?",
-            "answer": "No. Unlike prescription sleep aids, Gummi uses natural ingredients that work with your body's rhythm — not against it. You wake up refreshed, not knocked out."
-          }
-        },
-        "f3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Are they habit-forming?",
-            "answer": "No. All three ingredients are non-habit forming and safe for regular use. You can stop at any time without withdrawal."
-          }
-        },
-        "f4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How long until I see results?",
-            "answer": "Most people notice a difference from the very first night. For best results, use consistently for at least 2 weeks."
-          }
-        },
-        "f5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Are they vegan and allergen-friendly?",
-            "answer": "Yes — Gummi sleep gummies are vegan, gluten-free, and made with all-natural ingredients."
-          }
-        },
-        "f6": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How do I order?",
-            "answer": "Order directly through our online store. We deliver across South Africa — free shipping on orders over R500."
-          }
-        }
-      },
-      "block_order": [
-        "f1",
-        "f2",
-        "f3",
-        "f4",
-        "f5",
-        "f6"
-      ],
       "settings": {}
     },
     "cta": {
       "type": "cta-banner",
       "settings": {
-        "price": "450"
+        "price": "399"
       }
     }
   },
