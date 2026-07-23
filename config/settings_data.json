@@ -61,8 +61,9 @@
           "review_5": {
             "type": "review",
             "settings": {
-              "customer_name": "Thabo N.",
-              "review_text": "Recovering faster between sessions and noticing real size gains. Didn't expect a gummy to deliver like this. Worth every cent.",
+              "profile_image": "shopify://shop_images/hf_20260708_190554_93bc4160-8259-43dc-8118-aebf194db671.png",
+              "customer_name": "George S. · 38 · Durban · Rugby Coach",
+              "review_text": "At 38 I thought my best gym days were behind me.\n\nRecovery was slower, strength had plateaued, and I was waking up tired. My sports physio recommended creatine. Tried powder, hated it, switched to Gummi. Six weeks later I'm lifting numbers I haven't hit in four years, my mood on rest days is better, and I'm thinking more clearly on the field. Covers more bases than I expected.",
               "star_rating": 5,
               "show_verified": true
             }
